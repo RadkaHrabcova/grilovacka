@@ -1,18 +1,35 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="home">
+<appbar />
+
+    
+
+    </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+<script>
+
+import Appbar from './../components/Appbar.vue'
+export default{
+components: {
+    Appbar,
+}
+
 }
 </script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Roboto&display=swap');
+
+body{
+    font-family: 'Roboto', sans-serif;
+    
+
+}
+h1,
+h2{
+ font-family: 'Amatic SC', cursive;
+
+}
+</style>
