@@ -1,4 +1,4 @@
-      <template>
+  <template>
         <div>Ahoj zde je detail</div>
       </template>
       
