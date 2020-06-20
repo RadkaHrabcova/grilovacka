@@ -72,15 +72,18 @@
         <v-row class="flex-nowrap">
           <div>
             <!-- <v-navigation-drawer v-model="drawer" clipped color="grey lighten-4"> -->
-            <listOfPlaces
+            <!-- <listOfPlaces
               v-bind:searchedGrills="searchedGrills"
               v-on:search-grills="showSearchedGrills($event)"
-            />
+            /> -->
+
+            <detail 
+            v-bind:oneGrill="allGrills[0]"/>
             <!-- </v-navigation-drawer> -->
           </div>
           <div style="height: 80vh;
     width: 100%;">
-            <MyMap :grills="allGrills" />
+            <MyMap :grills="searchedGrills" />
           </div>
         </v-row>
       </div>
@@ -207,7 +210,12 @@ export default {
           charge: true,
           sportsGround: true,
           playground: true,
-          grillImage: require("./assets/photos/01_Luzanky1.jpeg")
+          grillImage: require("./assets/photos/01_Luzanky1.jpeg"),
+          parkingInfo:' parkoviště 100 m',
+          palivoInfo: ' gril je elektrický',
+          sportsGroundInfo: ' venkovní posilovna',
+          playgroundInfo: ' pískoviště, houpačky',
+          
         },
         {
           id: 1,

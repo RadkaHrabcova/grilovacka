@@ -1,13 +1,35 @@
   <template>
   <div>
     <v-row class="allName">
-      <img v-bind:src="require('../assets/icons/grill.svg')" width="40" height="40" />
+      <img v-bind:src="require('../assets/icons/grill.svg')" width="50" height="50" />
       <p class="name">{{oneGrill.name}}</p>
 
       <p>hodnocení: {{average(oneGrill.rating)}}</p>
       <v-btn target="_blank" :href="createLink(oneGrill.position)">naviguj</v-btn>
+      <v-btn icon>
+              <v-icon>mdi-close</v-icon>
+      </v-btn>
     </v-row>
-    <img v-bind:src="oneGrill.grillImage" width="100%" />
+    <img v-bind:src="oneGrill.grillImage" width="500" />
+
+    <div class="detailInfo">
+      <ul>
+        <li>
+          <img v-bind:src="require('../assets/icons/parking.svg')" width="40" height="40" />
+          {{oneGrill.parkingInfo}}</li>
+        <li>
+           <img v-bind:src="require('../assets/icons/grill.svg')" width="40" height="40" />
+          {{oneGrill.palivoInfo}}</li>
+        <li>
+          <img v-bind:src="require('../assets/icons/playground.svg')" width="40" height="40" />
+          {{oneGrill.playgroundInfo}}</li>
+                 
+        <li>
+          <img v-bind:src="require('../assets/icons/football.svg')" width="40" height="40" />
+          {{oneGrill.sportsGroundInfo}}</li>
+      </ul>
+    </div>
+
   </div>
 </template>
       
@@ -31,5 +53,13 @@ export default {
 .allName {
   padding: 20px;
   justify-content: space-between;
+  align-items: center;
 }
+
+.detailInfo{
+  padding:50px;
+  
+}
+
+
 </style>
