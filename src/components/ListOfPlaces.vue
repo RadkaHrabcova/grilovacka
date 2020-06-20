@@ -3,6 +3,7 @@
     <v-text-field label="Vyhledat místo" solo @input="searchGrills"></v-text-field>
 
     <v-data-table
+      @click:row="selectGrill"
       :headers="headers"
       :items="searchedGrills"
       :sort-by="['distance', 'rating']"
@@ -31,6 +32,10 @@ export default {
 
     average(rating) {
       return Math.round(rating.reduce((a, b) => a + b) / rating.length);
+    },
+
+    selectGrill(selectedGrill) {
+      this.$emit("id", selectedGrill.id);
     }
   },
 

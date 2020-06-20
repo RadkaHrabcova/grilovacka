@@ -71,15 +71,16 @@
       <div>
         <v-row class="flex-nowrap">
           <div>
-            <!-- <v-navigation-drawer v-model="drawer" clipped color="grey lighten-4"> -->
-            <!-- <listOfPlaces
-              v-bind:searchedGrills="searchedGrills"
-              v-on:search-grills="showSearchedGrills($event)"
-            /> -->
+            <v-navigation-drawer v-model="drawer" clipped color="grey lighten-4">
+              <ListOfPlaces
+                @id="((idGrill) => selectedGrill=idGrill)"
+                v-if="selectedGrill == null"
+                v-bind:searchedGrills="searchedGrills"
+                v-on:search-grills="showSearchedGrills($event)"
+              />
 
-            <detail 
-            v-bind:oneGrill="allGrills[0]"/>
-            <!-- </v-navigation-drawer> -->
+              <detail v-else v-bind:oneGrill="searchedGrills[selectedGrill]" />
+            </v-navigation-drawer>
           </div>
           <div style="height: 80vh;
     width: 100%;">
@@ -115,7 +116,7 @@ import Detail from "./components/Detail.vue";
 
 export default {
   components: {
-    listOfPlaces: ListOfPlaces,
+    ListOfPlaces,
     MyMap,
     Detail
   },
@@ -184,7 +185,7 @@ export default {
     return {
       toggle: [],
       searchedText: "",
-
+      selectedGrill: null,
       drawer: null,
       headers: [
         {
