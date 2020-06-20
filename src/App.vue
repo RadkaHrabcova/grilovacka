@@ -54,10 +54,16 @@
 
     <v-col md="8">
       <v-navigation-drawer v-model="drawer" app clipped color="grey lighten-4" width= '500'>
-        <listOfPlaces
+
+       <!--   <listOfPlaces
           v-bind:searchedGrills="searchedGrills"
           v-on:search-grills="showSearchedGrills($event)"
-        />
+          /> -->
+        
+      <Detail 
+      v-bind:oneGrill="allGrills[0]"
+      /> 
+
       </v-navigation-drawer>
     </v-col>
 
@@ -84,11 +90,13 @@
 import MyMap from "./components/Map";
 import { latLng } from "leaflet";
 import ListOfPlaces from "./components/ListOfPlaces.vue";
+import Detail from "./components/Detail.vue";
 
 export default {
   components: {
     listOfPlaces: ListOfPlaces,
-    MyMap
+    MyMap,
+    Detail
   },
   props: {
     source: String
@@ -179,7 +187,8 @@ export default {
           reservation: true,
           charge: true,
           sportsGround: true,
-          playground: true
+          playground: true,
+          grillImage: require('./assets/photos/01_Luzanky1.jpeg')
         },
         {
           id: 1,
