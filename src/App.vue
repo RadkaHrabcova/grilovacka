@@ -68,6 +68,8 @@
       </v-navigation-drawer>
     </v-col>
 
+    <MyMap :grills="allGrills" />
+
     <v-footer>
       <v-card flat tile class="indigo lighten-1 black--text text-center">
         <v-card-text
@@ -86,7 +88,13 @@
 </template>
 
 <script>
+import MyMap from "./components/Map";
+import { latLng } from "leaflet";
+
 export default {
+  components: {
+    MyMap
+  },
   props: {
     source: String
   },
@@ -108,8 +116,7 @@ export default {
         {
           id: 0,
           name: "Veřejný gril Lužánky",
-          lat: 49.2079947,
-          lon: 16.6066672,
+          position: latLng(49.2079947, 16.6066672),
           wc: true,
           parking: false,
           reservation: true,
@@ -120,8 +127,7 @@ export default {
         {
           id: 1,
           name: "Veřejný gril Lužánky",
-          lat: 49.2079947,
-          lon: 16.6066672,
+          position: latLng(49.2079947, 16.6066672),
           wc: true,
           parking: false,
           reservation: true,
@@ -131,63 +137,80 @@ export default {
         },
         {
           id: 2,
-          name: "Veřejný gril Lužánky",
-          lat: 49.2079947,
-          lon: 16.6066672,
-          wc: true,
-          parking: false,
-          reservation: true,
-          charge: true,
-          sportsGround: true,
+          name: "Veřejný gril Kraví hora",
+          position: latLng(49.2035717, 16.5842714),
+          wc: false,
+          parking: true,
+          reservation: false,
+          charge: false,
+          sportsGround: false,
           playground: true
         },
         {
           id: 3,
-          name: "Veřejný gril Lužánky",
-          lat: 49.2079947,
-          lon: 16.6066672,
-          wc: true,
+          name: "Nový Lískovec",
+          position: latLng(49.1754453, 16.5487825),
+          wc: false,
           parking: false,
-          reservation: true,
-          charge: true,
+          reservation: false,
+          charge: false,
           sportsGround: true,
-          playground: true
+          playground: false
         },
         {
           id: 4,
-          name: "Veřejný gril Lužánky",
-          lat: 49.2079947,
-          lon: 16.6066672,
-          wc: true,
+          name: "Kozí horka",
+          position: latLng(49.2386636, 16.5052903),
+          wc: false,
           parking: false,
-          reservation: true,
-          charge: true,
-          sportsGround: true,
+          reservation: false,
+          charge: false,
+          sportsGround: false,
           playground: true
         },
         {
           id: 5,
-          name: "Veřejný gril Lužánky",
-          lat: 49.2079947,
-          lon: 16.6066672,
-          wc: true,
-          parking: false,
-          reservation: true,
-          charge: true,
-          sportsGround: true,
-          playground: true
+          name: "pod Dymou",
+          position: latLng(49.2430192, 16.4991761),
+          wc: false,
+          parking: true,
+          reservation: false,
+          charge: false,
+          sportsGround: false,
+          playground: false
         },
         {
           id: 6,
-          name: "Veřejný gril Lužánky",
-          lat: 49.2079947,
-          lon: 16.6066672,
-          wc: true,
-          parking: false,
+          name: "Rokle",
+          position: latLng(49.2480253, 16.4937339),
+          wc: false,
+          parking: true,
           reservation: true,
-          charge: true,
-          sportsGround: true,
+          charge: false,
+          sportsGround: false,
           playground: true
+        },
+        {
+          id: 7,
+          name: "Maloměřice",
+          position: latLng(49.2270731, 16.6435522),
+          wc: false,
+          parking: false,
+          reservation: false,
+          charge: false,
+          sportsGround: true,
+          playground: false
+        },
+        {
+          id: 8,
+          name: "Rakovec",
+          position: latLng(49.2275075, 16.5104231),
+          wc: true,
+          parking: true,
+          reservation: true,
+          charge: false,
+          sportsGround: true,
+          playground: false
         }
       ]
     };
