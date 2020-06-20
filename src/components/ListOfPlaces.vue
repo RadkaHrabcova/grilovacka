@@ -9,15 +9,45 @@
       :sort-desc="[false, true]"
       multi-sort
       class="elevation-1"
-    ></v-data-table>
+    >
+      <template v-slot:item.rating="{ item }">{{average(item.rating)}}</template>
+
+      <template v-slot:item.position="{ item }">
+        <v-btn target="_blank" :href="createLink(item.position)">naviguj</v-btn>
+      </template>
+    </v-data-table>
   </div>
 </template>
 
 <script>
 export default {
   methods: {
+    createLink(position) {
+      console.log(position);
+      return `https://maps.google.com/?ll=${position.lat},${position.lng}`;
+    },
     searchGrills(data) {
       this.$emit("search-grills", data);
+    },
+
+    average(rating) {
+      return Math.round(rating.reduce((a, b) => a + b) / rating.length);
+    }
+  },
+
+  computed: {
+    headers() {
+      return [
+        {
+          text: this.searchedGrills.length + " výsledků",
+          align: "start",
+          sortable: false,
+          value: "name"
+        },
+
+        { text: "Hodnocení", value: "rating" },
+        { text: "Navigace", value: "position", sortable: false }
+      ];
     }
   },
 
@@ -25,18 +55,7 @@ export default {
 
   data() {
     return {
-      drawer: null,
-      headers: [
-        {
-          text: "11 výsledků",
-          align: "start",
-          sortable: false,
-          value: "name"
-        },
-        { text: "Vzdálenost", value: "distance" },
-        { text: "Hodnocení", value: "rating" },
-        { text: "Navigace", value: "navigation" }
-      ]
+      drawer: null
     };
   }
 };
