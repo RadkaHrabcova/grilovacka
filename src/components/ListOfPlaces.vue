@@ -1,56 +1,68 @@
 <template>
-  
- 
-      <div>
-        <v-text-field v-model="search" label="Vyhledat místo" solo @input="searchGrills"
-        ></v-text-field>
-        
-          <v-data-table
-            :headers="headers"
-            :items="searchedGrills"
-            :sort-by="['distance', 'rating']"
-            :sort-desc="[false, true]"
-            multi-sort
-            class="elevation-1"
-          ></v-data-table>
-        
-      </div>
-    
-  
+  <div>
+    <v-text-field v-model="search" label="Vyhledat místo" solo @input="searchGrills"></v-text-field>
+
+    <v-data-table
+      :headers="headers"
+      :items="searchedGrills"
+      :sort-by="['distance', 'rating']"
+      :sort-desc="[false, true]"
+      multi-sort
+      class="elevation-1"
+    >
+      <template v-slot:item.rating="{ item }"
+      >{{average(item.rating)}}</template>
+
+      <template v-slot:item.position="{ item }">
+      <v-btn target="_blank" :href="createLink(item.position)">
+
+      naviguj
+      </v-btn>
+      </template>
+    </v-data-table>
+  </div>
 </template>
 
 <script>
 export default {
-
-    methods:{
-        searchGrills(data) {
-            this.$emit("search-grills", data)
-            
-          
-        },
+  methods: {
+    createLink(position){
+      console.log(position)
+      return `https://maps.google.com/?ll=${position.lat},${position.lng}`
+    },
+    searchGrills(data) {
+      this.$emit("search-grills", data);
     },
 
-    
-    props:['searchedGrills'],
+    average(rating){
+      return Math.round(rating.reduce((a, b) => a + b) / rating.length);
+    },
+  },
 
-    data() {
-    return {
-      drawer: null,
-      headers: [
+  computed: {
+    headers() {
+      return [
         {
-          text: "11 výsledků",
+          text: this.searchedGrills.length + " výsledků",
           align: "start",
           sortable: false,
           value: "name"
         },
-        
-        { text: "Hodnocení", value: "rating" },
-        { text: "Navigace", value: "navigation" }
-      ],
-    }
 
-}
-}
+        { text: "Hodnocení", value: "rating" },
+        { text: "Navigace", value: "position", sortable: false }
+      ];
+    }
+  },
+
+  props: ["searchedGrills"],
+
+  data() {
+    return {
+      drawer: null
+    };
+  }
+};
 </script>
 
 <style>

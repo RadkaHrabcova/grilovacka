@@ -53,7 +53,7 @@
     </v-app-bar>
 
     <v-col md="8">
-      <v-navigation-drawer v-model="drawer" app clipped color="grey lighten-4">
+      <v-navigation-drawer v-model="drawer" app clipped color="grey lighten-4" width= '500'>
         <listOfPlaces
           v-bind:searchedGrills="searchedGrills"
           v-on:search-grills="showSearchedGrills($event)"
@@ -172,7 +172,8 @@ export default {
           id: 0,
           name: "Veřejný gril Lužánky",
           position: latLng(49.2079947, 16.6066672),
-          type: 'grill',  
+          type: 'grill', 
+          rating: [3, 5 , 3], 
           wc: true,
           parking: false,
           reservation: true,
@@ -184,7 +185,8 @@ export default {
           id: 1,
           name: "Veřejný gril Lužánky",
           position: latLng(49.2079947, 16.6066672),
-          type: 'grill', 
+          type: 'grill',
+          rating: [3, 3 , 3],  
           wc: true,
           parking: true,
           reservation: false,
@@ -196,7 +198,8 @@ export default {
           id: 2,
           name: "Veřejný gril Kraví hora",
           position: latLng(49.2035717, 16.5842714),
-          type: 'grill', 
+          type: 'grill',
+          rating: [5, 5 , 2],  
           wc: false,
           parking: true,
           reservation: false,
@@ -209,6 +212,7 @@ export default {
           name: "Nový Lískovec",
           position: latLng(49.1754453, 16.5487825),
           type: 'grill', 
+          rating: [1, 3 , 3], 
           wc: false,
           parking: false,
           reservation: false,
@@ -220,7 +224,8 @@ export default {
           id: 4,
           name: "Kozí horka",
           position: latLng(49.2386636, 16.5052903),
-          type: 'grill', 
+          type: 'grill',
+          rating: [5, 5 , 1],  
           wc: false,
           parking: false,
           reservation: false,
@@ -233,6 +238,7 @@ export default {
           name: "pod Dymou",
           position: latLng(49.2430192, 16.4991761),
           type: 'grill', 
+          rating: [5, 5 , 5], 
           wc: false,
           parking: true,
           reservation: false,
@@ -245,6 +251,7 @@ export default {
           name: "Rokle",
           position: latLng(49.2480253, 16.4937339),
           type: 'grill', 
+          rating: [1, 4 , 3], 
           wc: false,
           parking: true,
           reservation: true,
@@ -257,6 +264,7 @@ export default {
           name: "Maloměřice",
           position: latLng(49.2270731, 16.6435522),
           type: 'campfire', 
+          rating: [1, 1 , 3], 
           wc: false,
           parking: false,
           reservation: false,
@@ -268,7 +276,8 @@ export default {
           id: 8,
           name: "Rakovec",
           position: latLng(49.2275075, 16.5104231),
-          type: 'campfire', 
+          type: 'campfire',
+          rating: [1, 2 , 3],  
           wc: true,
           parking: true,
           reservation: true,
