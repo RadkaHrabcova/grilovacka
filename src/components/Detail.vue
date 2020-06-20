@@ -1,13 +1,26 @@
   <template>
   <div>
-    <v-row class="allName">
-      <img v-bind:src="require('../assets/icons/grill.svg')" width="50" height="50" />
-      <p class="name">{{oneGrill.name}}</p>
-
-      <p>hodnocení: {{average(oneGrill.rating)}}</p>
-      <v-btn target="_blank" :href="createLink(oneGrill.position)">naviguj</v-btn>
+    <v-row no-gutters class="allName align-center text-left">
       <v-btn icon @click="closeDetail">
-        <v-icon>mdi-close</v-icon>
+        <v-icon>mdi-arrow-left</v-icon>
+      </v-btn>
+
+      <div style="flex:1;" class="pl-3">
+        <p class="name py-0 my-0">{{oneGrill.name}}</p>
+        <v-rating
+          small
+          dense
+          color="orange"
+          class="mr-1"
+          empty-icon
+          :value="average(oneGrill.rating)"
+        ></v-rating>
+      </div>
+
+      <v-btn icon target="_blank" :href="createLink(oneGrill.position)">
+        <v-row class="justify-center align-center">
+          <img class="smaller mt-1" :src="require('../assets/icons/navigate.svg')" />
+        </v-row>
       </v-btn>
     </v-row>
     <img v-bind:src="oneGrill.grillImage" width="500" />
@@ -40,15 +53,20 @@
       >{{comment.name}} - {{comment.text}}</div>
     </div>
 
-    <div v-else>nejsou zadne komentare</div>
+    <div v-else>
+       nejsou zadne komentare</div>
 
-    <v-form>
-      <v-text-field v-model="name" label="Name" required></v-text-field>
+    <v-row no-gutters class="red">
+      s
+      fsdf
+      <!-- <v-form>
+        <v-text-field v-model="name" label="Name" required></v-text-field>
 
-      <v-text-field v-model="text" label="text" required></v-text-field>
+        <v-text-field v-model="text" label="text" required></v-text-field>
 
-      <v-btn color="success" class="mr-4" @click="add" :disabled="!buttonEnabled">Přidej komentář</v-btn>
-    </v-form>
+        <v-btn color="success" class="mr-4" @click="add" :disabled="!buttonEnabled">Přidej komentář</v-btn>
+      </v-form>-->
+    </v-row>
   </div>
 </template>
       
@@ -109,5 +127,10 @@ export default {
 .detailInfo img {
   vertical-align: middle;
   margin-right: 15px;
+}
+
+.smaller {
+  max-width: 24px;
+  max-height: 24px;
 }
 </style>
