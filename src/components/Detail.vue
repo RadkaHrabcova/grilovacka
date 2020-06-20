@@ -7,29 +7,32 @@
       <p>hodnocení: {{average(oneGrill.rating)}}</p>
       <v-btn target="_blank" :href="createLink(oneGrill.position)">naviguj</v-btn>
       <v-btn icon>
-              <v-icon>mdi-close</v-icon>
+        <v-icon>mdi-close</v-icon>
       </v-btn>
     </v-row>
     <img v-bind:src="oneGrill.grillImage" width="500" />
 
     <div class="detailInfo">
       <ul>
-        <li>
+        <li v-if="oneGrill.parkingInfo">
           <img v-bind:src="require('../assets/icons/parking.svg')" width="40" height="40" />
-          {{oneGrill.parkingInfo}}</li>
+          {{oneGrill.parkingInfo}}
+        </li>
         <li>
-           <img v-bind:src="require('../assets/icons/grill.svg')" width="40" height="40" />
-          {{oneGrill.palivoInfo}}</li>
+          <img v-bind:src="require('../assets/icons/grill.svg')" width="40" height="40" />
+          {{oneGrill.palivoInfo}}
+        </li>
         <li>
           <img v-bind:src="require('../assets/icons/playground.svg')" width="40" height="40" />
-          {{oneGrill.playgroundInfo}}</li>
-                 
+          {{oneGrill.playgroundInfo}}
+        </li>
+
         <li>
           <img v-bind:src="require('../assets/icons/football.svg')" width="40" height="40" />
-          {{oneGrill.sportsGroundInfo}}</li>
+          {{oneGrill.sportsGroundInfo}}
+        </li>
       </ul>
     </div>
-
   </div>
 </template>
       
@@ -51,15 +54,25 @@ export default {
       
 <style>
 .allName {
-  padding: 20px;
+   padding: 20px;
   justify-content: space-between;
-  align-items: center;
+  vertical-align: middle;
 }
 
-.detailInfo{
-  padding:50px;
+.detailInfo {
+  padding: 50px;
   
 }
 
+.detailInfo ul{
+list-style: none;
+}
 
+.detailInfo li{
+  margin-bottom: 10px;
+}
+.detailInfo img{
+  vertical-align: middle;
+  margin-right: 15px;
+}
 </style>
