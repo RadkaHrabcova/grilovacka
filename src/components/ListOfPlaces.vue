@@ -1,6 +1,6 @@
 <template>
   <div style="padding-left: 25px">
-    <v-text-field v-model="search" label="Vyhledat místo" solo @input="searchGrills"></v-text-field>
+    <v-text-field label="Vyhledat místo" solo @input="searchGrills"></v-text-field>
 
     <v-data-table
       :headers="headers"
@@ -23,7 +23,6 @@
 export default {
   methods: {
     createLink(position) {
-      console.log(position);
       return `https://maps.google.com/?ll=${position.lat},${position.lng}`;
     },
     searchGrills(data) {

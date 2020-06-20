@@ -17,7 +17,6 @@ export default {
 
   methods: {
     createLink(position) {
-      console.log(position);
       return `https://maps.google.com/?ll=${position.lat},${position.lng}`;
     },
 
