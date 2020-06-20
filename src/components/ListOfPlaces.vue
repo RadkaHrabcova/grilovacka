@@ -1,6 +1,14 @@
 <template>
   <div style="padding-left: 15px">
-    <v-text-field prepend-icon hide-details label="Vyhledat místo" solo @input="searchGrills"></v-text-field>
+    <v-text-field
+      clearable
+      prepend-inner-icon="mdi-magnify"
+      hide-details
+      label="Vyhledat místo"
+      solo
+      @change="searchGrills"
+      @input="searchGrills"
+    ></v-text-field>
 
     <v-data-table
       hide-default-footer
