@@ -6,8 +6,8 @@
 
       <p>hodnocení: {{average(oneGrill.rating)}}</p>
       <v-btn target="_blank" :href="createLink(oneGrill.position)">naviguj</v-btn>
-      <v-btn icon>
-              <v-icon>mdi-close</v-icon>
+      <v-btn icon @click="closeDetail">
+        <v-icon>mdi-close</v-icon>
       </v-btn>
     </v-row>
     <img v-bind:src="oneGrill.grillImage" width="500" />
@@ -16,20 +16,23 @@
       <ul>
         <li>
           <img v-bind:src="require('../assets/icons/parking.svg')" width="40" height="40" />
-          {{oneGrill.parkingInfo}}</li>
+          {{oneGrill.parkingInfo}}
+        </li>
         <li>
-           <img v-bind:src="require('../assets/icons/grill.svg')" width="40" height="40" />
-          {{oneGrill.palivoInfo}}</li>
+          <img v-bind:src="require('../assets/icons/grill.svg')" width="40" height="40" />
+          {{oneGrill.palivoInfo}}
+        </li>
         <li>
           <img v-bind:src="require('../assets/icons/playground.svg')" width="40" height="40" />
-          {{oneGrill.playgroundInfo}}</li>
-                 
+          {{oneGrill.playgroundInfo}}
+        </li>
+
         <li>
           <img v-bind:src="require('../assets/icons/football.svg')" width="40" height="40" />
-          {{oneGrill.sportsGroundInfo}}</li>
+          {{oneGrill.sportsGroundInfo}}
+        </li>
       </ul>
     </div>
-
   </div>
 </template>
       
@@ -44,6 +47,9 @@ export default {
 
     average(rating) {
       return Math.round(rating.reduce((a, b) => a + b) / rating.length);
+    },
+    closeDetail() {
+      this.$emit("closeDetail");
     }
   }
 };
@@ -56,10 +62,7 @@ export default {
   align-items: center;
 }
 
-.detailInfo{
-  padding:50px;
-  
+.detailInfo {
+  padding: 50px;
 }
-
-
 </style>

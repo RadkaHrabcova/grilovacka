@@ -74,17 +74,25 @@
             <v-navigation-drawer v-model="drawer" clipped color="grey lighten-4">
               <ListOfPlaces
                 @id="((idGrill) => selectedGrill=idGrill)"
-                v-if="selectedGrill == null"
+                v-if="!selectedGrillObject"
                 v-bind:searchedGrills="searchedGrills"
                 v-on:search-grills="showSearchedGrills($event)"
               />
 
-              <detail v-else v-bind:oneGrill="searchedGrills[selectedGrill]" />
+              <detail
+                v-else
+                v-bind:oneGrill="selectedGrillObject"
+                @closeDetail="(() => selectedGrill=null)"
+              />
             </v-navigation-drawer>
           </div>
           <div style="height: 80vh;
     width: 100%;">
-            <MyMap :grills="searchedGrills" />
+            <MyMap
+              :grills="searchedGrills"
+              @indexDetail="((index)=> selectedGrill=index)"
+              ref="myMap"
+            />
           </div>
         </v-row>
       </div>
@@ -122,6 +130,17 @@ export default {
   },
   props: {
     source: String
+  },
+  watch: {
+    selectedGrill: function(val) {
+      let position = null;
+      for (let grill of this.allGrills) {
+        if (val === grill.id) {
+          position = grill.position;
+        }
+      }
+      this.$refs.myMap.setcenter(position);
+    }
   },
 
   computed: {
@@ -170,6 +189,10 @@ export default {
       }
 
       return filteredGrills;
+    },
+
+    selectedGrillObject() {
+      return this.allGrills.find(grill => grill.id === this.selectedGrill);
     }
   },
 
@@ -212,11 +235,10 @@ export default {
           sportsGround: true,
           playground: true,
           grillImage: require("./assets/photos/01_Luzanky1.jpeg"),
-          parkingInfo:' parkoviště 100 m',
-          palivoInfo: ' gril je elektrický',
-          sportsGroundInfo: ' venkovní posilovna',
-          playgroundInfo: ' pískoviště, houpačky',
-          
+          parkingInfo: " parkoviště 100 m",
+          palivoInfo: " gril je elektrický",
+          sportsGroundInfo: " venkovní posilovna",
+          playgroundInfo: " pískoviště, houpačky"
         },
         {
           id: 1,

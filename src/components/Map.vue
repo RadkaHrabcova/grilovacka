@@ -3,7 +3,12 @@
   <div style="height:100%; width:100%;">
     <l-map :zoom="zoom" :center="center" :options="mapOptions">
       <l-tile-layer :url="url" :attribution="attribution" />
-      <l-marker v-for="(item, index) in grills" :key="index" :lat-lng="item.position">
+      <l-marker
+        v-for="(item, index) in grills"
+        :key="index"
+        :lat-lng="item.position"
+        @click="grillIndex(item.id)"
+      >
         <l-tooltip>{{item.name}}</l-tooltip>
       </l-marker>
     </l-map>
@@ -58,6 +63,12 @@ export default {
     },
     innerClick() {
       alert("Click!");
+    },
+    grillIndex(index) {
+      this.$emit("indexDetail", index);
+    },
+    setcenter(position) {
+      this.center = position;
     }
   }
 };
