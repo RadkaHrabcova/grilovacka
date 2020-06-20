@@ -1,13 +1,10 @@
   <template>
-        <div>Ahoj zde je detail</div>
-      </template>
+  <div>Ahoj zde je detail</div>
+</template>
       
       <script>
-      export default {
-      
-      }
-      </script>
+export default {};
+</script>
       
       <style>
-      
-      </style>
+</style>

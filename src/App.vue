@@ -1,83 +1,106 @@
 <template>
   <v-app id="keep">
-    <v-app-bar app clipped-left color="#f3f5e1">
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-col md="3">
-        <h1>Grilovačka</h1>
-      </v-col>
+    <div class="my-wrapper">
+      <v-row>
+        <v-app-bar
+          style="height: 100px; width:100%"
+          floating
+          class="#f3f5e1"
+          color="#f3f5e1"
+          height="50px"
+          width="100%"
+        >
+          <v-col md="4">
+            <row>
+              <v-app-bar-nav-icon s @click="drawer = !drawer"></v-app-bar-nav-icon>
+              <h1>Grilovačka</h1>
+            </row>
+          </v-col>
 
-      <v-col md="6">
-        <v-card flat color="#f3f5e1">
-          <v-row>
-            <v-btn-toggle v-model="toggle_exclusive" multiple>
-              <v-btn>
-                <img v-bind:src="require('./assets/icons/grill.svg')" width="40" height="40" />
+          <v-col md="6">
+            <v-card style="width:100%; padding-top: 50px" flat color="#f3f5e1">
+              <v-btn-toggle v-model="toggle_exclusive" multiple color="#f3f5e1">
+                <v-btn>
+                  <img v-bind:src="require('./assets/icons/grill.svg')" width="40" height="40" />
+                </v-btn>
+                <v-btn>
+                  <img v-bind:src="require('./assets/icons/campfire.svg')" width="40" height="40" />
+                </v-btn>
+                <v-btn>
+                  <img v-bind:src="require('./assets/icons/parking.svg')" width="40" height="40" />
+                </v-btn>
+                <v-btn>
+                  <img
+                    v-bind:src="require('./assets/icons/reservation.svg')"
+                    width="40"
+                    height="40"
+                  />
+                </v-btn>
+                <v-btn>
+                  <img v-bind:src="require('./assets/icons/toilet.svg')" width="40" height="40" />
+                </v-btn>
+                <v-btn>
+                  <img v-bind:src="require('./assets/icons/wallet.svg')" width="40" height="40" />
+                </v-btn>
+                <v-btn>
+                  <img v-bind:src="require('./assets/icons/playground.svg')" width="40" height="40" />
+                </v-btn>
+                <v-btn>
+                  <img v-bind:src="require('./assets/icons/football.svg')" width="40" height="40" />
+                </v-btn>
+              </v-btn-toggle>
+            </v-card>
+          </v-col>
+
+          <v-row md="2">
+            <v-col>
+              <v-btn tile outlined>
+                <h2>Zobrazit</h2>
               </v-btn>
-              <v-btn>
-                <img v-bind:src="require('./assets/icons/campfire.svg')" width="40" height="40" />
+            </v-col>
+
+            <v-col>
+              <v-btn tile outlined>
+                <h2>Resetovat vše</h2>
               </v-btn>
-              <v-btn>
-                <img v-bind:src="require('./assets/icons/parking.svg')" width="40" height="40" />
-              </v-btn>
-              <v-btn>
-                <img v-bind:src="require('./assets/icons/reservation.svg')" width="40" height="40" />
-              </v-btn>
-              <v-btn>
-                <img v-bind:src="require('./assets/icons/toilet.svg')" width="40" height="40" />
-              </v-btn>
-              <v-btn>
-                <img v-bind:src="require('./assets/icons/wallet.svg')" width="40" height="40" />
-              </v-btn>
-              <v-btn>
-                <img v-bind:src="require('./assets/icons/playground.svg')" width="40" height="40" />
-              </v-btn>
-              <v-btn>
-                <img v-bind:src="require('./assets/icons/football.svg')" width="40" height="40" />
-              </v-btn>
-            </v-btn-toggle>
+            </v-col>
           </v-row>
-        </v-card>
-      </v-col>
+        </v-app-bar>
+      </v-row>
 
-      <v-col md="4">
-        <v-row>
-          <v-btn class="ma-2" tile outlined>
-            <h2>Zobrazit</h2>
-          </v-btn>
-
-          <v-btn class="ma-2" tile outlined>
-            <h2>Resetovat vše</h2>
-          </v-btn>
+      <div>
+        <v-row class="flex-nowrap">
+          <div>
+            <!-- <v-navigation-drawer v-model="drawer" clipped color="grey lighten-4"> -->
+            <listOfPlaces
+              v-bind:searchedGrills="searchedGrills"
+              v-on:search-grills="showSearchedGrills($event)"
+            />
+            <!-- </v-navigation-drawer> -->
+          </div>
+          <div style="height: 80vh;
+    width: 100%;">
+            <MyMap :grills="allGrills" />
+          </div>
         </v-row>
-      </v-col>
-    </v-app-bar>
+      </div>
+      <div>
+        <v-footer>
+          <v-card flat tile class="indigo lighten-1 black--text text-center">
+            <v-card-text
+              pt-0
+            >Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</v-card-text>
 
-    <v-col md="8">
-      <v-navigation-drawer v-model="drawer" app clipped color="grey lighten-4">
-        <listOfPlaces
-         
-          v-bind:searchedGrills="searchedGrills"
-          v-on:search-grills="showSearchedGrills($event)"
-        />
-      </v-navigation-drawer>
-    </v-col>
+            <v-divider></v-divider>
 
-    <MyMap :grills="allGrills" />
-
-    <v-footer>
-      <v-card flat tile class="indigo lighten-1 black--text text-center">
-        <v-card-text
-          pt-0
-        >Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</v-card-text>
-
-        <v-divider></v-divider>
-
-        <v-card-text>
-          {{ new Date().getFullYear() }} —
-          <strong>Radka a Markéta</strong>
-        </v-card-text>
-      </v-card>
-    </v-footer>
+            <v-card-text>
+              {{ new Date().getFullYear() }} —
+              <strong>Radka a Markéta</strong>
+            </v-card-text>
+          </v-card>
+        </v-footer>
+      </div>
+    </div>
   </v-app>
 </template>
 
@@ -95,29 +118,26 @@ export default {
     source: String
   },
 
-   computed:{
-      searchedGrills(){
-        if (this.searchedText.length === 0){
-        return this.allGrills
-        }else{
-          return this.allGrills.filter(grills => grills.name.toLowerCase().includes(this.searchedText.toLowerCase()))
-        }
+  computed: {
+    searchedGrills() {
+      if (this.searchedText.length === 0) {
+        return this.allGrills;
+      } else {
+        return this.allGrills.filter(grills =>
+          grills.name.toLowerCase().includes(this.searchedText.toLowerCase())
+        );
       }
-     
-    },
+    }
+  },
 
   methods: {
     showSearchedGrills(data) {
-      this.searchedText = data
-      
-    },
-
-   
+      this.searchedText = data;
+    }
   },
   data() {
     return {
       searchedText: "",
-      
 
       drawer: null,
       headers: [
@@ -231,8 +251,7 @@ export default {
           sportsGround: true,
           playground: false
         }
-      ],
-      
+      ]
     };
   }
 };
@@ -240,6 +259,18 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Roboto&display=swap");
+
+.v-app-bar--fixed {
+  z-index: 10000000 !important;
+}
+
+.my-wrapper {
+  height: 100vh;
+  overflow: hidden;
+  flex-direction: column !important;
+  flex-wrap: nowrap;
+  border: 2px solid red;
+}
 
 body {
   font-family: "Roboto", sans-serif;
