@@ -6,7 +6,11 @@
 
       <p>hodnocení: {{average(oneGrill.rating)}}</p>
       <v-btn target="_blank" :href="createLink(oneGrill.position)">naviguj</v-btn>
+<<<<<<< HEAD
       <v-btn icon @click="closeDetail">
+=======
+      <v-btn icon>
+>>>>>>> 33feed078f2c2de404cf525b05c618c55c990b54
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </v-row>
@@ -14,7 +18,7 @@
 
     <div class="detailInfo">
       <ul>
-        <li>
+        <li v-if="oneGrill.parkingInfo">
           <img v-bind:src="require('../assets/icons/parking.svg')" width="40" height="40" />
           {{oneGrill.parkingInfo}}
         </li>
@@ -57,12 +61,29 @@ export default {
       
 <style>
 .allName {
-  padding: 20px;
+   padding: 20px;
   justify-content: space-between;
-  align-items: center;
+  vertical-align: middle;
 }
 
 .detailInfo {
   padding: 50px;
+<<<<<<< HEAD
 }
+=======
+  
+}
+
+.detailInfo ul{
+list-style: none;
+}
+
+.detailInfo li{
+  margin-bottom: 10px;
+}
+.detailInfo img{
+  vertical-align: middle;
+  margin-right: 15px;
+}
+>>>>>>> 33feed078f2c2de404cf525b05c618c55c990b54
 </style>
