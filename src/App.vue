@@ -21,31 +21,68 @@
             <v-card style="width:100%; padding-top: 50px" flat color="#f3f5e1">
               <v-btn-toggle v-model="toggle" multiple color="#f3f5e1">
                 <v-btn>
-                  <img class="filterIcon" v-bind:src="require('./assets/icons/grill.svg')" width="40" height="40" />
-                </v-btn>
-                <v-btn>
-                  <img class="filterIcon" v-bind:src="require('./assets/icons/campfire.svg')" width="40" height="40" />
-                </v-btn>
-                <v-btn>
-                  <img class="filterIcon" v-bind:src="require('./assets/icons/parking.svg')" width="40" height="40" />
-                </v-btn>
-                <v-btn>
-                  <img class="filterIcon" v-bind:src="require('./assets/icons/reservation.svg')"
+                  <img
+                    class="filterIcon"
+                    v-bind:src="require('./assets/icons/grill.svg')"
                     width="40"
                     height="40"
                   />
                 </v-btn>
                 <v-btn>
-                  <img class="filterIcon" v-bind:src="require('./assets/icons/toilet.svg')" width="40" height="40" />
+                  <img
+                    class="filterIcon"
+                    v-bind:src="require('./assets/icons/campfire.svg')"
+                    width="40"
+                    height="40"
+                  />
                 </v-btn>
                 <v-btn>
-                  <img class="filterIcon" v-bind:src="require('./assets/icons/wallet.svg')" width="40" height="40" />
+                  <img
+                    class="filterIcon"
+                    v-bind:src="require('./assets/icons/parking.svg')"
+                    width="40"
+                    height="40"
+                  />
                 </v-btn>
                 <v-btn>
-                  <img class="filterIcon" v-bind:src="require('./assets/icons/playground.svg')" width="40" height="40" />
+                  <img
+                    class="filterIcon"
+                    v-bind:src="require('./assets/icons/reservation.svg')"
+                    width="40"
+                    height="40"
+                  />
                 </v-btn>
                 <v-btn>
-                  <img class="filterIcon" v-bind:src="require('./assets/icons/football.svg')" width="40" height="40" />
+                  <img
+                    class="filterIcon"
+                    v-bind:src="require('./assets/icons/toilet.svg')"
+                    width="40"
+                    height="40"
+                  />
+                </v-btn>
+                <v-btn>
+                  <img
+                    class="filterIcon"
+                    v-bind:src="require('./assets/icons/wallet.svg')"
+                    width="40"
+                    height="40"
+                  />
+                </v-btn>
+                <v-btn>
+                  <img
+                    class="filterIcon"
+                    v-bind:src="require('./assets/icons/playground.svg')"
+                    width="40"
+                    height="40"
+                  />
+                </v-btn>
+                <v-btn>
+                  <img
+                    class="filterIcon"
+                    v-bind:src="require('./assets/icons/football.svg')"
+                    width="40"
+                    height="40"
+                  />
                 </v-btn>
               </v-btn-toggle>
             </v-card>
@@ -85,7 +122,6 @@
               />
             </v-navigation-drawer>
           </div>
-<<<<<<< HEAD
           <div style="height: 80vh;
     width: 100%;">
             <MyMap
@@ -93,10 +129,6 @@
               @indexDetail="((index)=> selectedGrill=index)"
               ref="myMap"
             />
-=======
-          <div style="height: 80vh; width: 100%;">
-            <MyMap :grills="searchedGrills" />
->>>>>>> 33feed078f2c2de404cf525b05c618c55c990b54
           </div>
         </v-row>
       </div>
@@ -239,20 +271,12 @@ export default {
           sportsGround: true,
           playground: true,
           grillImage: require("./assets/photos/01_Luzanky1.jpeg"),
-<<<<<<< HEAD
-          parkingInfo: " parkoviště 100 m",
+          parkingInfo: "parkoviště 100 m",
           palivoInfo: " gril je elektrický",
           sportsGroundInfo: " venkovní posilovna",
           playgroundInfo: " pískoviště, houpačky"
-=======
-          parkingInfo: 'parkoviště 100 m' ,
-          palivoInfo: ' gril je elektrický',
-          sportsGroundInfo: ' venkovní posilovna',
-          playgroundInfo: ' pískoviště, houpačky',
-          
->>>>>>> 33feed078f2c2de404cf525b05c618c55c990b54
         },
-        
+
         {
           id: 2,
           name: "Veřejný gril Kraví hora",
@@ -354,11 +378,11 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Roboto&display=swap");
 
 .v-btn-toggle > .v-btn.v-btn--active {
-    color: black !important;
+  color: black !important;
 }
 
-.filterIcon{
-  padding:5px;
+.filterIcon {
+  padding: 5px;
 }
 .v-app-bar--fixed {
   z-index: 10000000 !important;
