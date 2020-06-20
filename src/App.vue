@@ -114,6 +114,7 @@
           <div style="height: 80vh;
     width: 100%;">
             <MyMap
+              v-bind:oneGrill="selectedGrillObject"
               :grills="searchedGrills"
               @indexDetail="((index)=> selectedGrill=index)"
               ref="myMap"
@@ -123,7 +124,7 @@
       </div>
       <div>
         <v-footer>
-          <v-card flat tile class=" lighten-1 black--text text-center">
+          <v-card flat tile class="lighten-1 black--text text-center">
             <v-card-text
               pt-0
             >Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</v-card-text>
@@ -231,6 +232,7 @@ export default {
   },
   data() {
     return {
+      currentLatLng:latLng(49.2079947, 16.6066672),
       toggle: [],
       searchedText: "",
       selectedGrill: null,
@@ -264,11 +266,11 @@ export default {
           palivoInfo: " gril je elektrický",
           sportsGroundInfo: " venkovní posilovna",
           playgroundInfo: " pískoviště, houpačky",
-          comments:[
-            {date:'20.6.', text:'bylo to hezke misto'},
-            {date:'20.5.', text:'hrozne'},
-          
-          ]
+          comments: [
+            { date: "20.6.", text: "bylo to hezke misto" },
+            { date: "20.5.", text: "hrozne" }
+          ],
+          distance: latLng(49.2079947, 16.6066672).distanceTo(latLng(49.2079947, 16.6066672))
         },
 
         {
@@ -283,7 +285,8 @@ export default {
           charge: false,
           sportsGround: false,
           playground: true,
-          comments:[]
+          comments: [],
+          distance: latLng(49.2035717, 16.5842714).distanceTo(latLng(49.2079947, 16.6066672))
         },
         {
           id: 3,
@@ -297,7 +300,7 @@ export default {
           charge: false,
           sportsGround: true,
           playground: false,
-          comments:[]
+          comments: []
         },
         {
           id: 4,
@@ -311,7 +314,7 @@ export default {
           charge: false,
           sportsGround: false,
           playground: true,
-          comments:[]
+          comments: []
         },
         {
           id: 5,
@@ -325,7 +328,7 @@ export default {
           charge: false,
           sportsGround: false,
           playground: false,
-          comments:[]
+          comments: []
         },
         {
           id: 6,
@@ -339,7 +342,7 @@ export default {
           charge: false,
           sportsGround: false,
           playground: true,
-          comments:[]
+          comments: []
         },
         {
           id: 7,
@@ -353,7 +356,7 @@ export default {
           charge: false,
           sportsGround: true,
           playground: false,
-          comments:[]
+          comments: []
         },
         {
           id: 8,
@@ -367,7 +370,7 @@ export default {
           charge: false,
           sportsGround: true,
           playground: false,
-          comments:[]
+          comments: []
         }
       ]
     };
