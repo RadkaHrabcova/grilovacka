@@ -9,7 +9,7 @@
       <v-col md="6">
         <v-card flat color="#f3f5e1">
           <v-row>
-            <v-btn-toggle v-model="toggle_exclusive" multiple>
+            <v-btn-toggle v-model="toggle" multiple>
               <v-btn>
                 <img v-bind:src="require('./assets/icons/grill.svg')" width="40" height="40" />
               </v-btn>
@@ -41,11 +41,11 @@
 
       <v-col md="4">
         <v-row>
-          <v-btn class="ma-2" tile outlined>
+          <!-- <v-btn class="ma-2" tile outlined>
             <h2>Zobrazit</h2>
-          </v-btn>
+          </v-btn>-->
 
-          <v-btn class="ma-2" tile outlined>
+          <v-btn class="ma-2" tile outlined v-on:click="resetovat">
             <h2>Resetovat vše</h2>
           </v-btn>
         </v-row>
@@ -55,14 +55,13 @@
     <v-col md="8">
       <v-navigation-drawer v-model="drawer" app clipped color="grey lighten-4">
         <listOfPlaces
-         
           v-bind:searchedGrills="searchedGrills"
           v-on:search-grills="showSearchedGrills($event)"
         />
       </v-navigation-drawer>
     </v-col>
 
-    <MyMap :grills="allGrills" />
+    <MyMap :grills="searchedGrills" />
 
     <v-footer>
       <v-card flat tile class="indigo lighten-1 black--text text-center">
@@ -95,29 +94,65 @@ export default {
     source: String
   },
 
-   computed:{
-      searchedGrills(){
-        if (this.searchedText.length === 0){
-        return this.allGrills
-        }else{
-          return this.allGrills.filter(grills => grills.name.toLowerCase().includes(this.searchedText.toLowerCase()))
-        }
+  computed: {
+    searchedGrills() {
+      let filteredGrills = this.allGrills;
+
+      if (this.searchedText.length > 0) {
+        filteredGrills = filteredGrills.filter(grills =>
+          grills.name.toLowerCase().includes(this.searchedText.toLowerCase())
+        );
       }
-     
-    },
+
+      console.log("this.toggle", this.toggle);
+
+      if (this.toggle.some(item => item === 4)) {
+        // WC
+        console.log("filtruji");
+        filteredGrills = filteredGrills.filter(grill => grill.wc);
+      } if(this.toggle.some(item => item === 2)) {
+        //parking
+        filteredGrills = filteredGrills.filter(grill => grill.parking);
+      
+      } if(this.toggle.some(item => item === 3)) {
+        //reservation
+        filteredGrills = filteredGrills.filter(grill => grill.reservation);
+      
+      } if(this.toggle.some(item => item === 5)) {
+        //charge
+        filteredGrills = filteredGrills.filter(grill => grill.charge);
+      
+      } if(this.toggle.some(item => item === 6)) {
+        //playground
+        filteredGrills = filteredGrills.filter(grill => grill.playground);
+      
+      } if(this.toggle.some(item => item === 7)) {
+        //sportsGround
+        filteredGrills = filteredGrills.filter(grill => grill.sportsGround);
+      } if(this.toggle.some(item => item === 0)) {
+        //grill
+        filteredGrills = filteredGrills.filter(grill => grill.type === 'grill');
+      } if(this.toggle.some(item => item === 1)) {
+        //campfire
+        filteredGrills = filteredGrills.filter(grill => grill.type === 'campfire');
+      }
+
+      return filteredGrills;
+    }
+  },
 
   methods: {
-    showSearchedGrills(data) {
-      this.searchedText = data
-      
+    resetovat() {
+      this.toggle = [];
     },
-
-   
+    showSearchedGrills(data) {
+      this.searchedText = data;
+    }
   },
   data() {
     return {
+      toggle: [],
       searchedText: "",
-      
 
       drawer: null,
       headers: [
@@ -133,9 +168,11 @@ export default {
       ],
       allGrills: [
         {
+          
           id: 0,
           name: "Veřejný gril Lužánky",
           position: latLng(49.2079947, 16.6066672),
+          type: 'grill',  
           wc: true,
           parking: false,
           reservation: true,
@@ -147,6 +184,7 @@ export default {
           id: 1,
           name: "Veřejný gril Lužánky",
           position: latLng(49.2079947, 16.6066672),
+          type: 'grill', 
           wc: true,
           parking: true,
           reservation: false,
@@ -158,6 +196,7 @@ export default {
           id: 2,
           name: "Veřejný gril Kraví hora",
           position: latLng(49.2035717, 16.5842714),
+          type: 'grill', 
           wc: false,
           parking: true,
           reservation: false,
@@ -169,6 +208,7 @@ export default {
           id: 3,
           name: "Nový Lískovec",
           position: latLng(49.1754453, 16.5487825),
+          type: 'grill', 
           wc: false,
           parking: false,
           reservation: false,
@@ -180,6 +220,7 @@ export default {
           id: 4,
           name: "Kozí horka",
           position: latLng(49.2386636, 16.5052903),
+          type: 'grill', 
           wc: false,
           parking: false,
           reservation: false,
@@ -191,6 +232,7 @@ export default {
           id: 5,
           name: "pod Dymou",
           position: latLng(49.2430192, 16.4991761),
+          type: 'grill', 
           wc: false,
           parking: true,
           reservation: false,
@@ -202,6 +244,7 @@ export default {
           id: 6,
           name: "Rokle",
           position: latLng(49.2480253, 16.4937339),
+          type: 'grill', 
           wc: false,
           parking: true,
           reservation: true,
@@ -213,6 +256,7 @@ export default {
           id: 7,
           name: "Maloměřice",
           position: latLng(49.2270731, 16.6435522),
+          type: 'campfire', 
           wc: false,
           parking: false,
           reservation: false,
@@ -224,6 +268,7 @@ export default {
           id: 8,
           name: "Rakovec",
           position: latLng(49.2275075, 16.5104231),
+          type: 'campfire', 
           wc: true,
           parking: true,
           reservation: true,
@@ -231,8 +276,7 @@ export default {
           sportsGround: true,
           playground: false
         }
-      ],
-      
+      ]
     };
   }
 };

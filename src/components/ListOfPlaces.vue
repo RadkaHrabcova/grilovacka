@@ -43,7 +43,7 @@ export default {
           sortable: false,
           value: "name"
         },
-        { text: "Vzdálenost", value: "distance" },
+        
         { text: "Hodnocení", value: "rating" },
         { text: "Navigace", value: "navigation" }
       ],
