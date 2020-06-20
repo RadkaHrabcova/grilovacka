@@ -54,17 +54,11 @@
 
     <v-col md="8">
       <v-navigation-drawer v-model="drawer" app clipped color="grey lighten-4">
-        <v-text-field v-model="search" label="Vyhledat místo" solo></v-text-field>
-        <v-app id="inspire">
-          <v-data-table
-            :headers="headers"
-            :items="allGrills"
-            :sort-by="['distance', 'rating']"
-            :sort-desc="[false, true]"
-            multi-sort
-            class="elevation-1"
-          ></v-data-table>
-        </v-app>
+        <listOfPlaces
+         
+          v-bind:searchedGrills="searchedGrills"
+          v-on:search-grills="showSearchedGrills($event)"
+        />
       </v-navigation-drawer>
     </v-col>
 
@@ -86,12 +80,40 @@
 </template>
 
 <script>
+import ListOfPlaces from "./components/ListOfPlaces.vue";
+
 export default {
+  components: {
+    listOfPlaces: ListOfPlaces
+  },
   props: {
     source: String
   },
+
+   computed:{
+      searchedGrills(){
+        if (this.searchedText.length === 0){
+        return this.allGrills
+        }else{
+          return this.allGrills.filter(grills => grills.name.toLowerCase().includes(this.searchedText.toLowerCase()))
+        }
+      }
+     
+    },
+
+  methods: {
+    showSearchedGrills(data) {
+      this.searchedText = data
+      
+    },
+
+   
+  },
   data() {
     return {
+      searchedText: "",
+      
+
       drawer: null,
       headers: [
         {
@@ -119,39 +141,39 @@ export default {
         },
         {
           id: 1,
-          name: "Veřejný gril Lužánky",
-          lat: 49.2079947,
-          lon: 16.6066672,
+          name: "Veřejný gril Kraví hora",
+          lat: 49.2035717,
+          lon: 16.5842714,
           wc: true,
-          parking: false,
-          reservation: true,
-          charge: true,
+          parking: true,
+          reservation: false,
+          charge: false,
           sportsGround: true,
           playground: true
         },
         {
           id: 2,
-          name: "Veřejný gril Lužánky",
-          lat: 49.2079947,
-          lon: 16.6066672,
-          wc: true,
+          name: "Nový Lískovec",
+          lat: 49.1754453,
+          lon: 16.5487825,
+          wc: false,
           parking: false,
-          reservation: true,
-          charge: true,
+          reservation: false,
+          charge: false,
           sportsGround: true,
           playground: true
         },
         {
           id: 3,
-          name: "Veřejný gril Lužánky",
-          lat: 49.2079947,
-          lon: 16.6066672,
+          name: "Kozí horka",
+          lat: 49.2386636,
+          lon: 16.5052903,
           wc: true,
           parking: false,
-          reservation: true,
-          charge: true,
-          sportsGround: true,
-          playground: true
+          reservation: false,
+          charge: false,
+          sportsGround: false,
+          playground: false
         },
         {
           id: 4,
@@ -189,7 +211,8 @@ export default {
           sportsGround: true,
           playground: true
         }
-      ]
+      ],
+      
     };
   }
 };
@@ -197,10 +220,6 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Roboto&display=swap");
-
-#keep .v-navigation-drawer__border {
-  display: none;
-}
 
 body {
   font-family: "Roboto", sans-serif;
