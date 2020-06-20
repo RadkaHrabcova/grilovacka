@@ -1,24 +1,17 @@
 <template>
   <v-app id="keep">
     <div class="my-wrapper">
-      <v-row>
-        <v-app-bar
-          style="height: 100px; width:100%"
-          floating
-          class="#f3f5e1"
-          color="#f3f5e1"
-          height="50px"
-          width="100%"
-        >
-          <v-col md="4">
-            <v-row>
-              <v-app-bar-nav-icon s @click="drawer = !drawer"></v-app-bar-nav-icon>
-              <h1>Grilovačka</h1>
-            </v-row>
-          </v-col>
+      <v-row class="flex-nowrap" no-gutters>
+        <div style="height: 100px; width:100%" floating class="menu-wrapper" height="30px">
+          <v-row class="justify-space-between align-center fill-height px-4" no-gutters>
+            <div>
+              <v-row no-gutters class="align-center">
+                <v-app-bar-nav-icon s @click="drawer = !drawer"></v-app-bar-nav-icon>
+                <h1>Grilovačka</h1>
+              </v-row>
+            </div>
 
-          <v-col md="6">
-            <v-card style="width:100%; padding-top: 50px" flat color="#f3f5e1">
+            <div>
               <v-btn-toggle v-model="toggle" multiple color="#f3f5e1">
                 <v-btn>
                   <img
@@ -85,42 +78,38 @@
                   />
                 </v-btn>
               </v-btn-toggle>
-            </v-card>
-          </v-col>
+            </div>
 
-          <v-row md="2">
-            <!-- <v-col>
+            <div>
+              <!-- <v-col>
               <v-btn tile outlined>
                 <h2>Zobrazit</h2>
               </v-btn>
-            </v-col>-->
+              </v-col>-->
 
-            <v-col>
               <v-btn tile outlined @click="resetovat">
                 <h2>Resetovat vše</h2>
               </v-btn>
-            </v-col>
+            </div>
           </v-row>
-        </v-app-bar>
+        </div>
       </v-row>
 
       <div>
         <v-row class="flex-nowrap">
-          <div>
-            <v-navigation-drawer v-model="drawer" clipped color="grey lighten-4" width="500">
-              <ListOfPlaces
-                @id="((idGrill) => selectedGrill=idGrill)"
-                v-if="!selectedGrillObject"
-                v-bind:searchedGrills="searchedGrills"
-                v-on:search-grills="showSearchedGrills($event)"
-              />
+          <div style="overflow: scroll; height: 80vh; width: 40vw">
+            <ListOfPlaces
+              @id="((idGrill) => selectedGrill=idGrill)"
+              v-if="!selectedGrillObject"
+              v-bind:searchedGrills="searchedGrills"
+              v-on:search-grills="showSearchedGrills($event)"
+            />
 
-              <detail
-                v-else
-                v-bind:oneGrill="selectedGrillObject"
-                @closeDetail="(() => selectedGrill=null)"
-              />
-            </v-navigation-drawer>
+            <detail
+              v-else
+              v-bind:oneGrill="selectedGrillObject"
+              @closeDetail="(() => selectedGrill=null)"
+            />
           </div>
           <div style="height: 80vh;
     width: 100%;">
@@ -388,12 +377,15 @@ export default {
   z-index: 10000000 !important;
 }
 
+.menu-wrapper {
+  background: #f3f5e1;
+}
+
 .my-wrapper {
   height: 100vh;
   overflow: hidden;
   flex-direction: column !important;
   flex-wrap: nowrap;
-  border: 2px solid red;
 }
 
 body {

@@ -1,8 +1,9 @@
 <template>
-  <div style="padding-left: 25px">
-    <v-text-field label="Vyhledat místo" solo @input="searchGrills"></v-text-field>
+  <div style="padding-left: 15px">
+    <v-text-field prepend-icon hide-details label="Vyhledat místo" solo @input="searchGrills"></v-text-field>
 
     <v-data-table
+      hide-default-footer
       @click:row="selectGrill"
       :headers="headers"
       :items="searchedGrills"
@@ -11,10 +12,35 @@
       multi-sort
       class="elevation-1"
     >
-      <template v-slot:item.rating="{ item }">{{average(item.rating)}}</template>
+      <template v-slot:item.image="{ item }">
+        <v-row no-gutters class="justify-center align-center">
+          <img
+            class="image-wrapper"
+            v-if="item.grillImage"
+            :src="item.grillImage"
+            alt="nahled obrazku"
+          />
+          <img
+            class="image-wrapper"
+            v-else
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR8TKl-5A0GRek5ce4Hx4J0NU36J8dK10BNT2WRkaqC0G2HVcpc&usqp=CAU"
+          />
+        </v-row>
+      </template>
+
+      <template v-slot:item.rating="{ item }">
+        <div class="title-name">
+          <strong>{{ item.name }}</strong>
+        </div>
+        <v-rating small dense color="orange" empty-icon :value="average(item.rating)"></v-rating>
+      </template>
 
       <template v-slot:item.position="{ item }">
-        <v-btn target="_blank" :href="createLink(item.position)">naviguj</v-btn>
+        <v-btn icon target="_blank" :href="createLink(item.position)">
+          <v-row class="justify-center align-center">
+            <img class="smaller mt-1" :src="require('../assets/icons/navigate.svg')" />
+          </v-row>
+        </v-btn>
       </template>
     </v-data-table>
   </div>
@@ -42,12 +68,7 @@ export default {
   computed: {
     headers() {
       return [
-        {
-          text: this.searchedGrills.length + " výsledků",
-          align: "start",
-          sortable: false,
-          value: "name"
-        },
+        { text: this.searchedGrills.length + " výsledků", value: "image" },
 
         { text: "Hodnocení", value: "rating" },
         { text: "Navigace", value: "position", sortable: false }
@@ -65,7 +86,25 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.image-wrapper {
+  max-width: 70px;
+  height: 75px;
+  object-fit: contain;
+}
+
+.smaller {
+  max-width: 24px;
+  max-height: 24px;
+  width: 100%;
+}
+
+.title-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 #keep .v-navigation-drawer__border {
   display: none;
 }
