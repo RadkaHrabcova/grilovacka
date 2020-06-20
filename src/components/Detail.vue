@@ -33,6 +33,22 @@
         </li>
       </ul>
     </div>
+    <div v-if="oneGrill.comments && oneGrill.comments.length > 0">
+      <div
+        v-for="comment in oneGrill.comments"
+        :key="comment.name"
+      >{{comment.name}} - {{comment.text}}</div>
+    </div>
+
+    <div v-else>nejsou zadne komentare</div>
+
+    <v-form>
+      <v-text-field v-model="name" label="Name" required></v-text-field>
+
+      <v-text-field v-model="text" label="text" required></v-text-field>
+
+      <v-btn color="success" class="mr-4" @click="add" :disabled="!buttonEnabled">Přidej komentář</v-btn>
+    </v-form>
   </div>
 </template>
       
@@ -40,7 +56,24 @@
 export default {
   props: ["oneGrill"],
 
+  data() {
+    return {
+      name: "",
+      text: ""
+    };
+  },
+
+  computed: {
+    buttonEnabled() {
+      return this.name.length > 0 && this.text.length > 0;
+    }
+  },
   methods: {
+    add() {
+      this.oneGrill.comments.push({ name: this.name, text: this.text });
+      this.name = "";
+      this.text = "";
+    },
     createLink(position) {
       return `https://maps.google.com/?ll=${position.lat},${position.lng}`;
     },

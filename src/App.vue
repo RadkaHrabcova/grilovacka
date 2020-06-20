@@ -123,7 +123,7 @@
       </div>
       <div>
         <v-footer>
-          <v-card flat tile class="indigo lighten-1 black--text text-center">
+          <v-card flat tile class=" lighten-1 black--text text-center">
             <v-card-text
               pt-0
             >Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</v-card-text>
@@ -263,7 +263,12 @@ export default {
           parkingInfo: "parkoviště 100 m",
           palivoInfo: " gril je elektrický",
           sportsGroundInfo: " venkovní posilovna",
-          playgroundInfo: " pískoviště, houpačky"
+          playgroundInfo: " pískoviště, houpačky",
+          comments:[
+            {date:'20.6.', text:'bylo to hezke misto'},
+            {date:'20.5.', text:'hrozne'},
+          
+          ]
         },
 
         {
@@ -277,7 +282,8 @@ export default {
           reservation: false,
           charge: false,
           sportsGround: false,
-          playground: true
+          playground: true,
+          comments:[]
         },
         {
           id: 3,
@@ -290,7 +296,8 @@ export default {
           reservation: false,
           charge: false,
           sportsGround: true,
-          playground: false
+          playground: false,
+          comments:[]
         },
         {
           id: 4,
@@ -303,7 +310,8 @@ export default {
           reservation: false,
           charge: false,
           sportsGround: false,
-          playground: true
+          playground: true,
+          comments:[]
         },
         {
           id: 5,
@@ -316,7 +324,8 @@ export default {
           reservation: false,
           charge: false,
           sportsGround: false,
-          playground: false
+          playground: false,
+          comments:[]
         },
         {
           id: 6,
@@ -329,7 +338,8 @@ export default {
           reservation: true,
           charge: false,
           sportsGround: false,
-          playground: true
+          playground: true,
+          comments:[]
         },
         {
           id: 7,
@@ -342,7 +352,8 @@ export default {
           reservation: false,
           charge: false,
           sportsGround: true,
-          playground: false
+          playground: false,
+          comments:[]
         },
         {
           id: 8,
@@ -355,7 +366,8 @@ export default {
           reservation: true,
           charge: false,
           sportsGround: true,
-          playground: false
+          playground: false,
+          comments:[]
         }
       ]
     };
