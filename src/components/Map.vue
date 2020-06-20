@@ -3,7 +3,9 @@
   <div style="height:100%; width:100%;">
     <l-map :zoom="zoom" :center="center" :options="mapOptions">
       <l-tile-layer :url="url" :attribution="attribution" />
-      <l-marker v-for="(item, index) in grills" :key="index" :lat-lng="item.position"></l-marker>
+      <l-marker v-for="(item, index) in grills" :key="index" :lat-lng="item.position">
+        <l-tooltip>{{item.name}}</l-tooltip>
+      </l-marker>
     </l-map>
   </div>
 </template>
