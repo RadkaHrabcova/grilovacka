@@ -77,9 +77,8 @@ export default {
     headers() {
       return [
         { text: this.searchedGrills.length + " výsledků", value: "image" },
-
         { text: "Hodnocení", value: "rating" },
-        { text: "Vzdálenost", value: "distance" },
+        { text: "Vzdálenost v km", value: "distance" },
         { text: "Navigace", value: "position", sortable: false }
       ];
     }

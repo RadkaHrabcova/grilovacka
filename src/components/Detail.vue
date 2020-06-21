@@ -28,45 +28,43 @@
     <div class="detailInfo">
       <ul>
         <li v-if="oneGrill.parkingInfo">
-          <img v-bind:src="require('../assets/icons/parking.svg')" width="40" height="40" />
+          <img v-bind:src="require('../assets/icons/parking.svg')"  />
           {{oneGrill.parkingInfo}}
         </li>
-        <li>
-          <img v-bind:src="require('../assets/icons/grill.svg')" width="40" height="40" />
+        <li v-if="oneGrill.palivoInfo">
+          <img v-bind:src="require('../assets/icons/grill.svg')" />
           {{oneGrill.palivoInfo}}
         </li>
-        <li>
-          <img v-bind:src="require('../assets/icons/playground.svg')" width="40" height="40" />
+        <li v-if="oneGrill.playgroudInfo">
+          <img v-bind:src="require('../assets/icons/playground.svg')" />
           {{oneGrill.playgroundInfo}}
         </li>
 
-        <li>
-          <img v-bind:src="require('../assets/icons/football.svg')" width="40" height="40" />
+        <li v-if="oneGrill.sportsGroundInfo">
+          <img v-bind:src="require('../assets/icons/football.svg')" />
           {{oneGrill.sportsGroundInfo}}
         </li>
       </ul>
     </div>
-    <div v-if="oneGrill.comments && oneGrill.comments.length > 0">
-      <div
-        v-for="comment in oneGrill.comments"
-        :key="comment.name"
-      >{{comment.name}} - {{comment.text}}</div>
-    </div>
 
-    <div v-else>
-       nejsou zadne komentare</div>
+    <div class="komentar">
+      <div v-if="oneGrill.comments && oneGrill.comments.length > 0">
+        <div
+          v-for="comment in oneGrill.comments"
+          :key="comment.name"
+        >{{comment.name}} - {{comment.text}}</div>
+      </div>
 
-    <v-row no-gutters class="red">
-      s
-      fsdf
-      <!-- <v-form>
+      <div v-else>nejsou zadne komentare</div>
+
+      <v-form>
         <v-text-field v-model="name" label="Name" required></v-text-field>
 
         <v-text-field v-model="text" label="text" required></v-text-field>
 
         <v-btn color="success" class="mr-4" @click="add" :disabled="!buttonEnabled">Přidej komentář</v-btn>
-      </v-form>-->
-    </v-row>
+      </v-form>
+    </div>
   </div>
 </template>
       
@@ -107,6 +105,9 @@ export default {
 </script>
       
 <style>
+.komentar {
+  padding-left: 20px;
+}
 .allName {
   padding: 20px;
   justify-content: space-between;
@@ -114,7 +115,7 @@ export default {
 }
 
 .detailInfo {
-  padding: 50px;
+  padding: 50px 10px;
 }
 
 .detailInfo ul {
@@ -125,6 +126,8 @@ export default {
   margin-bottom: 10px;
 }
 .detailInfo img {
+  width: 30px;
+  height: 30px;
   vertical-align: middle;
   margin-right: 15px;
 }

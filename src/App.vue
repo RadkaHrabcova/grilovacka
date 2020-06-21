@@ -7,9 +7,18 @@
             <div>
               <v-row no-gutters class="align-center">
                 <v-app-bar-nav-icon s @click="drawer = !drawer"></v-app-bar-nav-icon>
-                <h1>Grilovačka</h1>
+                
+                <v-row class="logo">
+                   <img
+                    v-bind:src="require('./assets/grilGril.jpg')"
+                    height="90"
+                  
+                  /> 
+                <h1 class="logoText">Grilovačka</h1>
+                </v-row>
               </v-row>
             </div>
+            
 
             <div>
               <v-btn-toggle v-model="toggle" multiple color="#f3f5e1">
@@ -261,7 +270,7 @@ export default {
           charge: true,
           sportsGround: true,
           playground: true,
-          grillImage: require("./assets/photos/01_Luzanky1.jpeg"),
+          grillImage: require("./assets/photos/00_Luzanky1.jpeg"),
           parkingInfo: "parkoviště 100 m",
           palivoInfo: " gril je elektrický",
           sportsGroundInfo: " venkovní posilovna",
@@ -272,35 +281,84 @@ export default {
           ],
           distance: latLng(49.2079947, 16.6066672).distanceTo(latLng(49.2079947, 16.6066672))
         },
+        {
+          id: 1,
+          name: "Veřejný gril Špilberk",
+          position: latLng(49.193722, 16.601805),
+          type: "grill",
+          rating: [3, 4, 3],
+          wc: true,
+          parking: true,
+          reservation: true,
+          charge: true,
+          sportsGround: false,
+          playground: false,
+          grillImage: require("./assets/photos/01_spielberk1.jpg"),
+          palivoInfo: " gril je elektrický",
+          wcInfo:'',
+          parkingInfo: "parkoviště 500 m - Domini park",
+          reservationInfo:` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
+          chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
+          sportsGroundInfo: " ",
+          playgroundInfo: " ",
+          mhd:'šilingrovo náměstí (tram: 1,3,4,5,6,12)',
+          comments: [
+            
+          ],
+          distance: latLng(49.2079947, 16.6066672).distanceTo(latLng(49.2079947, 16.6066672))
+        },
 
         {
           id: 2,
           name: "Veřejný gril Kraví hora",
           position: latLng(49.2035717, 16.5842714),
           type: "grill",
-          rating: [5, 5, 2],
-          wc: false,
+          rating: [3, 4, 3],
+          wc: true,
           parking: true,
-          reservation: false,
-          charge: false,
+          reservation: true,
+          charge: true,
           sportsGround: false,
-          playground: true,
-          comments: [],
-          distance: latLng(49.2035717, 16.5842714).distanceTo(latLng(49.2079947, 16.6066672))
+          playground: false,
+          grillImage: require("./assets/photos/02_kraviHora1.jpg"),
+          palivoInfo: " gril je elektrický",
+          wcInfo:'',
+          parkingInfo: "parkoviště 500 m - Domini park",
+          reservationInfo:` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
+          chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
+          sportsGroundInfo: " ",
+          playgroundInfo: " ",
+          mhd:'šilingrovo náměstí (tram: 1,3,4,5,6,12)',
+          comments: [
+            
+          ],
+          distance: Math.round(latLng(49.2035717, 16.5842714).distanceTo(latLng(49.2079947, 16.6066672))/100) /10
         },
         {
           id: 3,
           name: "Nový Lískovec",
           position: latLng(49.1754453, 16.5487825),
           type: "grill",
-          rating: [1, 3, 3],
-          wc: false,
-          parking: false,
-          reservation: false,
-          charge: false,
-          sportsGround: true,
+         type: "grill",
+          rating: [3, 4, 3],
+          wc: true,
+          parking: true,
+          reservation: true,
+          charge: true,
+          sportsGround: false,
           playground: false,
-          comments: []
+          grillImage: require("./assets/photos/03_novyLiskovec3jpg.jpg"),
+          palivoInfo: " gril je elektrický",
+          wcInfo:'',
+          parkingInfo: "parkoviště 500 m - Domini park",
+          reservationInfo:` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
+          chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
+          sportsGroundInfo: " ",
+          playgroundInfo: " ",
+          mhd:'šilingrovo náměstí (tram: 1,3,4,5,6,12)',
+          comments: [
+            
+          ],
         },
         {
           id: 4,
@@ -383,6 +441,16 @@ export default {
 
 .v-btn-toggle > .v-btn.v-btn--active {
   color: black !important;
+}
+
+.logo{
+  margin: 0px 40px;
+  vertical-align: middle;
+}
+.logoText{
+  font-size: 50px ;
+ margin-left: 20px;
+ vertical-align: middle;
 }
 
 .filterIcon {
