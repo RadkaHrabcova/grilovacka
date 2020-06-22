@@ -4,7 +4,7 @@
       clearable
       prepend-inner-icon="mdi-magnify"
       hide-details
-      label="Vyhledat místo"
+      label="Vyhledat veřejné grilovací místo"
       solo
       @change="searchGrills"
       @input="searchGrills"
