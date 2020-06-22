@@ -11,7 +11,7 @@
                 </v-app-bar-nav-icon>
 
                 <v-row class="logo">
-                  <img v-bind:src="require('./assets/greyLetterG.png')" height="80" />
+                  <img v-bind:src="require('./assets/redG.png')" height="80" />
                   <h1 class="logoText">rilovačka</h1>
                 </v-row>
               </v-row>
