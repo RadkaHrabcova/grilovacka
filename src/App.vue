@@ -285,14 +285,15 @@ export default {
           sportsGround: false,
           playground: false,
           grillImage: require("./assets/photos/01_spielberk1.jpg"),
-          palivoInfo: " gril je elektrický",
+          palivoInfo: 'gril je elektrický',
           wcInfo:'',
           parkingInfo: "parkoviště 500 m - Domini park",
           reservationInfo:` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
           chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
-          sportsGroundInfo: " ",
-          playgroundInfo: " ",
+          sportsGroundInfo: "",
+          playgroundInfo: '',
           mhd:'šilingrovo náměstí (tram: 1,3,4,5,6,12)',
+          zajimavost:'je tu hrad',
           comments: [
             
           ],
@@ -389,11 +390,13 @@ export default {
           palivoInfo: " gril je elektrický",
           wcInfo:'',
           parkingInfo: "parkoviště 500 m - Domini park",
-          reservationInfo:` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
+          reservationInfo:`Rezervujte zde: <a href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
           chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
           sportsGroundInfo: " ",
           playgroundInfo: " ",
+          
           mhd:'šilingrovo náměstí (tram: 1,3,4,5,6,12)',
+          zajimavost:'bkjsdfjkhsadiuf',
           comments: []
         },
         {
@@ -451,7 +454,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Roboto&display=swap");
 
 .reset{
-letter-spacing: 4px;
+letter-spacing: 3px;
 }
 .filterButton{
   background:black;

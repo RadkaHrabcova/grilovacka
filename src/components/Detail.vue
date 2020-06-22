@@ -23,31 +23,56 @@
         </v-row>
       </v-btn>
     </v-row>
-    <img v-bind:src="oneGrill.grillImage" width="500" />
+    <img v-bind:src="oneGrill.grillImage" width=100% />
 
     <div class="detailInfo">
+
       <ul>
-        <li v-if="oneGrill.parkingInfo">
-          <img v-bind:src="require('../assets/icons/parking.svg')"  />
-          {{oneGrill.parkingInfo}}
-        </li>
-        <li v-if="oneGrill.palivoInfo">
+         <li v-if="oneGrill.palivoInfo">
           <img v-bind:src="require('../assets/icons/grill.svg')" />
           {{oneGrill.palivoInfo}}
         </li>
-        <li v-if="oneGrill.playgroudInfo">
+
+        <li v-if="oneGrill.reservationInfo">
+        <div class="d-flex">
+          <img v-bind:src="require('../assets/icons/reservation.svg')" />
+          <p v-html="oneGrill.reservationInfo"></p>
+        </div>
+          </li>
+        <li v-if="oneGrill.chargeInfo">
+          <img v-bind:src="require('../assets/icons/dollar-sign.svg')" />
+          {{oneGrill.chargeInfo}}
+         
+        </li>
+        <li v-if="oneGrill.mhd">
+          <img v-bind:src="require('../assets/icons/mhd.png')" />
+          {{oneGrill.mhd}}
+        </li>
+        <li v-if="oneGrill.parkingInfo">
+          <img v-bind:src="require('../assets/icons/parking.svg')"  />
+          {{oneGrill.parkingInfo}}
+        </li>       
+        <li v-if="oneGrill.playgroundInfo">
           <img v-bind:src="require('../assets/icons/playground.svg')" />
           {{oneGrill.playgroundInfo}}
         </li>
-
         <li v-if="oneGrill.sportsGroundInfo">
-          <img v-bind:src="require('../assets/icons/football.svg')" />
+          <img v-bind:src="require('../assets/icons/field.svg')" />
           {{oneGrill.sportsGroundInfo}}
-        </li>
+        </li>             
+        <li v-if="oneGrill.wcInfo">
+          <img v-bind:src="require('../assets/icons/wc-sign.svg')" />
+          {{oneGrill.wcInfo}}
+        </li>        
       </ul>
     </div>
-
+  <div v-if="oneGrill.zajimavost" class="zajimavost">
+  <h2>Turistická zajímavost</h2>
+  
+  <P>{{oneGrill.zajimavost}}</P>
+  </div>
     <div class="komentar">
+      <h2>Komentáře</h2>
       <div v-if="oneGrill.comments && oneGrill.comments.length > 0">
         <div
           v-for="comment in oneGrill.comments"
@@ -105,8 +130,17 @@ export default {
 </script>
       
 <style>
-.komentar {
-  padding-left: 20px;
+.komentar, 
+.zajimavost {
+  padding: 0 40px;
+  
+}
+
+.zajimavost h2,
+.komentar h2{
+  letter-spacing: 2px;
+  padding-bottom: 30px;
+  text-align: center;
 }
 .allName {
   padding: 20px;

@@ -40,7 +40,7 @@ export default {
     return {
       icon: icon({
         iconUrl: require("../assets/icons/red-pin.png"),
-        iconSize: [25, 41],
+        iconSize: [30, 40],
         iconAnchor: [12, 41]
       }),
       zoom: 13,
