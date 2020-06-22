@@ -10,11 +10,11 @@
                 
                 <v-row class="logo">
                    <img
-                    v-bind:src="require('./assets/grilGril.jpg')"
-                    height="90"
+                    v-bind:src="require('./assets/letterG.png')"
+                    height="80"
                   
                   /> 
-                <h1 class="logoText">Grilovačka</h1>
+                <h1 class="logoText">rilovačka</h1>
                 </v-row>
               </v-row>
             </div>
@@ -339,7 +339,6 @@ export default {
           name: "Nový Lískovec",
           position: latLng(49.1754453, 16.5487825),
           type: "grill",
-         type: "grill",
           rating: [3, 4, 3],
           wc: true,
           parking: true,
@@ -372,6 +371,15 @@ export default {
           charge: false,
           sportsGround: false,
           playground: true,
+          grillImage: require("./assets/photos/04_koziHorka1.jpg"),
+          palivoInfo: " gril je elektrický",
+          wcInfo:'',
+          parkingInfo: "parkoviště 500 m - Domini park",
+          reservationInfo:` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
+          chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
+          sportsGroundInfo: " ",
+          playgroundInfo: " ",
+          mhd:'šilingrovo náměstí (tram: 1,3,4,5,6,12)',
           comments: []
         },
         {
@@ -386,6 +394,15 @@ export default {
           charge: false,
           sportsGround: false,
           playground: false,
+          grillImage: require("./assets/photos/05_podDymou1.jpg"),
+          palivoInfo: " gril je elektrický",
+          wcInfo:'',
+          parkingInfo: "parkoviště 500 m - Domini park",
+          reservationInfo:` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
+          chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
+          sportsGroundInfo: " ",
+          playgroundInfo: " ",
+          mhd:'šilingrovo náměstí (tram: 1,3,4,5,6,12)',
           comments: []
         },
         {
@@ -448,8 +465,9 @@ export default {
   vertical-align: middle;
 }
 .logoText{
-  font-size: 50px ;
- margin-left: 20px;
+  font-size: 60px ;
+  color: #ca0101;
+ margin-left: 5px;
  vertical-align: middle;
 }
 
@@ -461,7 +479,7 @@ export default {
 }
 
 .menu-wrapper {
-  background: #f3f5e1;
+  background: #393939;
 }
 
 .my-wrapper {
