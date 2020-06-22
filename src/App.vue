@@ -7,95 +7,139 @@
             <div>
               <v-row no-gutters class="align-center">
                 <v-app-bar-nav-icon s @click="drawer = !drawer">
-                  <img :src="require('./assets/icons/greyPin.png')" height="40">
+                  <img :src="require('./assets/icons/greyPin.png')" height="40" />
                 </v-app-bar-nav-icon>
-                
+
                 <v-row class="logo">
-                   <img
-                    v-bind:src="require('./assets/greyLetterG.png')"
-                    height="80"
-                  
-                  /> 
-                <h1 class="logoText">rilovačka</h1>
+                  <img v-bind:src="require('./assets/greyLetterG.png')" height="80" />
+                  <h1 class="logoText">rilovačka</h1>
                 </v-row>
               </v-row>
             </div>
-            
-
-            <div class="filterButtons">
+             
+            <div class="filterButtons" style="d-flex">
+              
               <v-btn-toggle v-model="toggle" multiple>
-                <v-btn style="margin: 0px 10px">
-                  <img
-                    class="filterIcon"
-                    v-bind:src="require('./assets/icons/grill.svg')"
-                    width="40"
-                    height="40"
-                  />
-                </v-btn>
-                <v-btn style="margin: 0px 40px 0px 10px">
-                  <img
-                    class="filterIcon"
-                    v-bind:src="require('./assets/icons/campfire.svg')"
-                    width="40"
-                    height="40"
-                  />
-                  </v-btn>
-               
-                <v-btn style="margin: 0px 10px">
-                  <img
-                    class="filterIcon"
-                    v-bind:src="require('./assets/icons/parking.svg')"
-                    width="40"
-                    height="40"
-                  />
-                </v-btn>
-                <v-btn style="margin: 0px 10px">
-                  <img
-                    class="filterIcon"
-                    v-bind:src="require('./assets/icons/reservation.svg')"
-                    width="40"
-                    height="40"
-                  />
-                </v-btn>
-                <v-btn style="margin: 0px 10px">
-                  <img
-                    class="filterIcon"
-                    v-bind:src="require('./assets/icons/wc-sign.svg')"
-                    width="40"
-                    height="40"
-                  />
-                </v-btn>
-                <v-btn style="margin: 0px 10px">
-                  <img
-                    class="filterIcon"
-                    v-bind:src="require('./assets/icons/dollar-sign.svg')"
-                    width="40"
-                    height="40"
-                  />
-                </v-btn>
-                <v-btn style="margin: 0px 10px">
-                  <img
-                    class="filterIcon"
-                    v-bind:src="require('./assets/icons/playground.svg')"
-                    width="40"
-                    height="40"
-                  />
-                </v-btn>
-                <v-btn style="margin: 0px 10px">
-                  <img
-                    class="filterIcon"
-                    v-bind:src="require('./assets/icons/field.svg')"
-                    width="40"
-                    height="40"
-                  />
-                </v-btn>
+                <v-tooltip bottom z-index="1000">
+                  <template v-slot:activator="{ on, attrs }">
+                     <div >
+              <h2 class="align-self-center">filtry</h2>
+              </div>
+                    <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
+                      <img
+                        class="filterIcon"
+                        v-bind:src="require('./assets/icons/grill.svg')"
+                        width="40"
+                        height="40"
+                      />
+                    </v-btn>
+                  </template>
+                  <span>grill</span>
+                </v-tooltip>
+
+                <v-tooltip bottom z-index="1000">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn style="margin: 0px 40px 0px 10px" v-bind="attrs" v-on="on">
+                      <img
+                        class="filterIcon"
+                        v-bind:src="require('./assets/icons/campfire.svg')"
+                        width="40"
+                        height="40"
+                      />
+                    </v-btn>
+                  </template>
+                  <span>ohniště</span>
+                </v-tooltip>
+
+                <v-tooltip bottom z-index="1000">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
+                      <img
+                        class="filterIcon"
+                        v-bind:src="require('./assets/icons/parking.svg')"
+                        width="40"
+                        height="40"
+                      />
+                    </v-btn>
+                  </template>
+                  <span>parkoviště</span>
+                </v-tooltip>
+
+                <v-tooltip bottom z-index="1000">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
+                      <img
+                        class="filterIcon"
+                        v-bind:src="require('./assets/icons/reservation.svg')"
+                        width="40"
+                        height="40"
+                      />
+                    </v-btn>
+                  </template>
+                  <span>rezervace</span>
+                </v-tooltip>
+
+                <v-tooltip bottom z-index="1000">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
+                      <img
+                        class="filterIcon"
+                        v-bind:src="require('./assets/icons/wc-sign.svg')"
+                        width="40"
+                        height="40"
+                      />
+                    </v-btn>
+                  </template>
+                  <span>wc</span>
+                </v-tooltip>
+
+                <v-tooltip bottom z-index="1000">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
+                      <img
+                        class="filterIcon"
+                        v-bind:src="require('./assets/icons/dollar-sign.svg')"
+                        width="40"
+                        height="40"
+                      />
+                    </v-btn>
+                  </template>
+                  <span>s poplatkem</span>
+                </v-tooltip>
+
+                <v-tooltip bottom z-index="1000">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
+                      <img
+                        class="filterIcon"
+                        v-bind:src="require('./assets/icons/playground.svg')"
+                        width="40"
+                        height="40"
+                      />
+                    </v-btn>
+                  </template>
+                  <span>dětské hřiště</span>
+                </v-tooltip>
+
+                <v-tooltip bottom z-index="1000">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
+                      <img
+                        class="filterIcon"
+                        v-bind:src="require('./assets/icons/field.svg')"
+                        width="40"
+                        height="40"
+                      />
+                    </v-btn>
+                  </template>
+                  <span>sportovní</span>
+                </v-tooltip>
               </v-btn-toggle>
             </div>
 
             <div>
-              <v-btn tile outlined @click="resetovat"  color=#E0DCDC >
+              <v-btn tile outlined @click="resetovat" color="#E0DCDC">
                 <h2 class="reset">Resetovat vše</h2>
-                           
               </v-btn>
             </div>
           </v-row>
@@ -131,11 +175,11 @@
       </div>
       <div>
         <v-footer class="footer justify-md-center" py-0 height="100">
-         
-            <p py-0 class="text-align:center"><strong>Kontaktujte nás:</strong> grilovacka@seznam.cz  |   
-           &copy; 2020 <strong> Radka a Markéta</strong></p>
-           
-         
+          <p py-0 class="text-align:center">
+            <strong>Kontaktujte nás:</strong> grilovacka@seznam.cz |
+            &copy; 2020
+            <strong>Radka a Markéta</strong>
+          </p>
         </v-footer>
       </div>
     </div>
@@ -232,7 +276,7 @@ export default {
   },
   data() {
     return {
-      currentLatLng:latLng(49.2079947, 16.6066672),
+      currentLatLng: latLng(49.2079947, 16.6066672),
       toggle: [],
       searchedText: "",
       selectedGrill: null,
@@ -261,8 +305,9 @@ export default {
           charge: true,
           sportsGround: true,
           playground: true,
-          grillImage: require("./assets/photos/00_Luzanky1.jpeg"),
+          grillImage: [ require("./assets/photos/00_Luzanky1.jpeg"),require("./assets/photos/00_Luzanky1.jpeg"),require("./assets/photos/01_spielberk1.jpg"), require("./assets/photos/04_koziHorka1.jpg")],
           parkingInfo: "parkoviště 100 m",
+          reservationInfo:`Rezervujte zde: <a target="_blank" href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
           palivoInfo: " gril je elektrický",
           sportsGroundInfo: " venkovní posilovna",
           playgroundInfo: " pískoviště, houpačky",
@@ -270,7 +315,9 @@ export default {
             { date: "20.6.", text: "bylo to hezke misto" },
             { date: "20.5.", text: "hrozne" }
           ],
-          distance: latLng(49.2079947, 16.6066672).distanceTo(latLng(49.2079947, 16.6066672))
+          distance: latLng(49.2079947, 16.6066672).distanceTo(
+            latLng(49.2079947, 16.6066672)
+          )
         },
         {
           id: 1,
@@ -288,7 +335,7 @@ export default {
           palivoInfo: 'gril je elektrický',
           wcInfo:'',
           parkingInfo: "parkoviště 500 m - Domini park",
-          reservationInfo:` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
+          reservationInfo:`Rezervujte zde: <a target="_blank" href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
           chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
           sportsGroundInfo: "",
           playgroundInfo: '',
@@ -314,17 +361,21 @@ export default {
           playground: false,
           grillImage: require("./assets/photos/02_kraviHora1.jpg"),
           palivoInfo: " gril je elektrický",
-          wcInfo:'',
+          wcInfo: "",
           parkingInfo: "parkoviště 500 m - Domini park",
-          reservationInfo:` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
-          chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
-          sportsGroundInfo: " ",
-          playgroundInfo: " ",
-          mhd:'šilingrovo náměstí (tram: 1,3,4,5,6,12)',
-          comments: [
-            
-          ],
-          distance: Math.round(latLng(49.2035717, 16.5842714).distanceTo(latLng(49.2079947, 16.6066672))/100) /10
+          reservationInfo: ` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
+          chargeInfo:
+            "Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)",
+          sportsGroundInfo: "",
+          playgroundInfo: "",
+          mhd: "šilingrovo náměstí (tram: 1,3,4,5,6,12)",
+          comments: [],
+          distance:
+            Math.round(
+              latLng(49.2035717, 16.5842714).distanceTo(
+                latLng(49.2079947, 16.6066672)
+              ) / 100
+            ) / 10
         },
         {
           id: 3,
@@ -340,16 +391,15 @@ export default {
           playground: false,
           grillImage: require("./assets/photos/03_novyLiskovec3jpg.jpg"),
           palivoInfo: " gril je elektrický",
-          wcInfo:'',
+          wcInfo: "",
           parkingInfo: "parkoviště 500 m - Domini park",
-          reservationInfo:` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
-          chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
-          sportsGroundInfo: " ",
-          playgroundInfo: " ",
-          mhd:'šilingrovo náměstí (tram: 1,3,4,5,6,12)',
-          comments: [
-            
-          ],
+          reservationInfo: ` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
+          chargeInfo:
+            "Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)",
+          sportsGroundInfo: "",
+          playgroundInfo: "",
+          mhd: "šilingrovo náměstí (tram: 1,3,4,5,6,12)",
+          comments: []
         },
         {
           id: 4,
@@ -365,13 +415,14 @@ export default {
           playground: true,
           grillImage: require("./assets/photos/04_koziHorka1.jpg"),
           palivoInfo: " gril je elektrický",
-          wcInfo:'',
+          wcInfo: "",
           parkingInfo: "parkoviště 500 m - Domini park",
-          reservationInfo:` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
-          chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
-          sportsGroundInfo: " ",
-          playgroundInfo: " ",
-          mhd:'šilingrovo náměstí (tram: 1,3,4,5,6,12)',
+          reservationInfo: ` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
+          chargeInfo:
+            "Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)",
+          sportsGroundInfo: "",
+          playgroundInfo: "",
+          mhd: "šilingrovo náměstí (tram: 1,3,4,5,6,12)",
           comments: []
         },
         {
@@ -388,12 +439,12 @@ export default {
           playground: false,
           grillImage: require("./assets/photos/05_podDymou1.jpg"),
           palivoInfo: " gril je elektrický",
-          wcInfo:'',
+          wcInfo: "",
           parkingInfo: "parkoviště 500 m - Domini park",
-          reservationInfo:`Rezervujte zde: <a href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
+          reservationInfo:`Rezervujte zde: <a target="_blank" href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
           chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
-          sportsGroundInfo: " ",
-          playgroundInfo: " ",
+          sportsGroundInfo: "",
+          playgroundInfo: "",
           
           mhd:'šilingrovo náměstí (tram: 1,3,4,5,6,12)',
           zajimavost:'bkjsdfjkhsadiuf',
@@ -448,37 +499,33 @@ export default {
 </script>
 
 <style scoped>
-
-
-
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Roboto&display=swap");
 
 .reset{
 letter-spacing: 3px;
 }
-.filterButton{
-  background:black;
+.filterButton {
+  background: black;
 }
 
-.footer{
-  background:black;
+.footer {
+  background: black;
 }
 
 .v-btn-toggle > .v-btn.v-btn--active {
   color: black !important;
 }
 
-.logo{
+.logo {
   margin: 0px 40px;
   vertical-align: middle;
 }
-.logoText{
-  font-size: 60px ;
+.logoText {
+  font-size: 60px;
   color: #ca0101;
- margin-left: 5px;
- vertical-align: middle;
+  margin-left: 5px;
+  vertical-align: middle;
 }
-
 
 .v-app-bar--fixed {
   z-index: 10000000 !important;
