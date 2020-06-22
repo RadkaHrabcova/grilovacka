@@ -6,11 +6,13 @@
           <v-row class="justify-space-between align-center fill-height px-4" no-gutters>
             <div>
               <v-row no-gutters class="align-center">
-                <v-app-bar-nav-icon s @click="drawer = !drawer"></v-app-bar-nav-icon>
+                <v-app-bar-nav-icon s @click="drawer = !drawer">
+                  <img :src="require('./assets/icons/greyPin.png')" height="40">
+                </v-app-bar-nav-icon>
                 
                 <v-row class="logo">
                    <img
-                    v-bind:src="require('./assets/letterG.png')"
+                    v-bind:src="require('./assets/greyLetterG.png')"
                     height="80"
                   
                   /> 
@@ -37,7 +39,8 @@
                     width="40"
                     height="40"
                   />
-                </v-btn>
+                  </v-btn>
+               
                 <v-btn style="margin: 0px 10px">
                   <img
                     class="filterIcon"
@@ -57,7 +60,7 @@
                 <v-btn style="margin: 0px 10px">
                   <img
                     class="filterIcon"
-                    v-bind:src="require('./assets/icons/toilet.svg')"
+                    v-bind:src="require('./assets/icons/wc-sign.svg')"
                     width="40"
                     height="40"
                   />
@@ -65,7 +68,7 @@
                 <v-btn style="margin: 0px 10px">
                   <img
                     class="filterIcon"
-                    v-bind:src="require('./assets/icons/wallet.svg')"
+                    v-bind:src="require('./assets/icons/dollar-sign.svg')"
                     width="40"
                     height="40"
                   />
@@ -81,7 +84,7 @@
                 <v-btn style="margin: 0px 10px">
                   <img
                     class="filterIcon"
-                    v-bind:src="require('./assets/icons/football.svg')"
+                    v-bind:src="require('./assets/icons/field.svg')"
                     width="40"
                     height="40"
                   />
@@ -90,14 +93,9 @@
             </div>
 
             <div>
-              <!-- <v-col>
-              <v-btn tile outlined>
-                <h2>Zobrazit</h2>
-              </v-btn>
-              </v-col>-->
-
-              <v-btn tile outlined @click="resetovat">
-                <h2>Resetovat vše</h2>
+              <v-btn tile outlined @click="resetovat"  color=#E0DCDC >
+                <h2 class="reset">Resetovat vše</h2>
+                           
               </v-btn>
             </div>
           </v-row>
@@ -132,18 +130,11 @@
         </v-row>
       </div>
       <div>
-        <v-footer class="footer">
-          
-            <v-card-text
-              pt-0
-            ></v-card-text>
-
-            <v-divider></v-divider>
-
-            <v-card-text>
-              &copy; 2020
-              <strong> Radka a Markéta</strong>
-            </v-card-text>
+        <v-footer class="footer justify-md-center" py-0 height="100">
+         
+            <p py-0 class="text-align:center"><strong>Kontaktujte nás:</strong> grilovacka@seznam.cz  |   
+           &copy; 2020 <strong> Radka a Markéta</strong></p>
+           
          
         </v-footer>
       </div>
@@ -453,15 +444,23 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+
+
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Roboto&display=swap");
 
-.filterButton{
-  background-color:#393939
+.reset{
+letter-spacing: 4px;
 }
+.filterButton{
+  background:black;
+}
+
 .footer{
   background:black;
 }
+
 .v-btn-toggle > .v-btn.v-btn--active {
   color: black !important;
 }
@@ -477,9 +476,7 @@ export default {
  vertical-align: middle;
 }
 
-.filterIcon {
-  padding: 5px;
-}
+
 .v-app-bar--fixed {
   z-index: 10000000 !important;
 }
