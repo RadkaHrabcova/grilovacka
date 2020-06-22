@@ -20,9 +20,9 @@
             </div>
             
 
-            <div>
-              <v-btn-toggle v-model="toggle" multiple color="#f3f5e1">
-                <v-btn>
+            <div class="filterButtons">
+              <v-btn-toggle v-model="toggle" multiple>
+                <v-btn style="margin: 0px 10px">
                   <img
                     class="filterIcon"
                     v-bind:src="require('./assets/icons/grill.svg')"
@@ -30,7 +30,7 @@
                     height="40"
                   />
                 </v-btn>
-                <v-btn>
+                <v-btn style="margin: 0px 40px 0px 10px">
                   <img
                     class="filterIcon"
                     v-bind:src="require('./assets/icons/campfire.svg')"
@@ -38,7 +38,7 @@
                     height="40"
                   />
                 </v-btn>
-                <v-btn>
+                <v-btn style="margin: 0px 10px">
                   <img
                     class="filterIcon"
                     v-bind:src="require('./assets/icons/parking.svg')"
@@ -46,7 +46,7 @@
                     height="40"
                   />
                 </v-btn>
-                <v-btn>
+                <v-btn style="margin: 0px 10px">
                   <img
                     class="filterIcon"
                     v-bind:src="require('./assets/icons/reservation.svg')"
@@ -54,7 +54,7 @@
                     height="40"
                   />
                 </v-btn>
-                <v-btn>
+                <v-btn style="margin: 0px 10px">
                   <img
                     class="filterIcon"
                     v-bind:src="require('./assets/icons/toilet.svg')"
@@ -62,7 +62,7 @@
                     height="40"
                   />
                 </v-btn>
-                <v-btn>
+                <v-btn style="margin: 0px 10px">
                   <img
                     class="filterIcon"
                     v-bind:src="require('./assets/icons/wallet.svg')"
@@ -70,7 +70,7 @@
                     height="40"
                   />
                 </v-btn>
-                <v-btn>
+                <v-btn style="margin: 0px 10px">
                   <img
                     class="filterIcon"
                     v-bind:src="require('./assets/icons/playground.svg')"
@@ -78,7 +78,7 @@
                     height="40"
                   />
                 </v-btn>
-                <v-btn>
+                <v-btn style="margin: 0px 10px">
                   <img
                     class="filterIcon"
                     v-bind:src="require('./assets/icons/football.svg')"
@@ -132,19 +132,19 @@
         </v-row>
       </div>
       <div>
-        <v-footer>
-          <v-card flat tile class="lighten-1 black--text text-center">
+        <v-footer class="footer">
+          
             <v-card-text
               pt-0
-            >Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</v-card-text>
+            ></v-card-text>
 
             <v-divider></v-divider>
 
             <v-card-text>
-              {{ new Date().getFullYear() }} —
-              <strong>Radka a Markéta</strong>
+              &copy; 2020
+              <strong> Radka a Markéta</strong>
             </v-card-text>
-          </v-card>
+         
         </v-footer>
       </div>
     </div>
@@ -456,6 +456,12 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Roboto&display=swap");
 
+.filterButton{
+  background-color:#393939
+}
+.footer{
+  background:black;
+}
 .v-btn-toggle > .v-btn.v-btn--active {
   color: black !important;
 }
