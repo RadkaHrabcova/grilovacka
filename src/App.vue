@@ -17,17 +17,19 @@
               </v-row>
             </div>
              
-            <div  style="d-flex">
-              
-              <v-btn-toggle class="filterButton" v-model="toggle" multiple>
+            <div>
+              <v-row style="margin: 0px 10px;">
+              <h2 class="vyber">Vyber, co chceš mít na místě k dispozici:</h2> 
+              <v-btn-toggle style="margin: 0px 10px" class="filterButton" v-model="toggle" multiple>
                 <v-tooltip bottom z-index="1000">
                   <template v-slot:activator="{ on, attrs }">
                      <div >
               <!-- <h2>filtry</h2> -->
               
-               <h2 class="vyber">Vyber, co chceš mít na místě k dispozici:</h2> 
+               
               
               </div>
+              
                     <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
                       <img
                         class="filterIcon"
@@ -138,12 +140,15 @@
                   <span>sportovní hřiště</span>
                 </v-tooltip>
               </v-btn-toggle>
-            </div>
-
-            <div>
-              <v-btn tile outlined @click="resetovat" color="#E0DCDC" style="margin-right: 60px;">
+            
+              <v-btn tile outlined @click="resetovat" color="#E0DCDC" style="margin-right: 10px;">
                 <h2 class="reset">Resetovat vše</h2>
               </v-btn>
+              <v-btn style="margin-left: 50px; padding: 0px;"><img
+                        v-bind:src="require('./assets/icons/currentPosition.png')"
+                        width="40"
+                        height="40"/></v-btn>
+                        </v-row>
             </div>
           </v-row>
         </div>
@@ -324,12 +329,12 @@ export default {
             { date: "20.6.", text: "bylo to hezke misto" },
             { date: "20.5.", text: "hrozne" }
           ],
-          distance:
+          distance:`"
             Math.round(
               latLng(49.2079947, 16.6066672).distanceTo(
-                latLng(49.1884422, 16.6147289)
+                ${this.currentLatLng}
               ) / 100
-            ) / 10
+            ) / 10"`
         },
         {
           id: 1,
