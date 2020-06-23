@@ -16,7 +16,6 @@
                 </v-row>
               </v-row>
             </div>
-<<<<<<< HEAD
              
             <div  style="d-flex">
               
@@ -29,18 +28,6 @@
                <h2 >Vyber, co chceš mít na místě k dispozici:</h2> 
               
               </div >
-=======
-
-            <div class="filterButtons" style="d-flex">
-              <v-btn-toggle v-model="toggle" multiple>
-                <v-tooltip bottom z-index="1000">
-                  <template v-slot:activator="{ on, attrs }">
-                    <div>
-                      <!-- <h2>filtry</h2> -->
-
-                      <h2>Vyber, co chceš mít na místě k dispozici:</h2>
-                    </div>
->>>>>>> 17079762a94f4cec5481cad80b6ae095d2dd05ee
                     <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
                       <img
                         class="filterIcon"
@@ -449,7 +436,7 @@ export default {
           charge: false,
           sportsGround: true,
           playground: true,
-          //grillImage: require("./assets/photos/kozihorka.heic"),
+          grillImage: require("./assets/photos/kozihorka.jpg"),
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "",
           parkingInfo: "90 m",
@@ -479,7 +466,7 @@ export default {
           charge: false,
           sportsGround: false,
           playground: true,
-        //  grillImage: require("./assets/photos/poddymouI.heic"),
+          grillImage: require("./assets/photos/poddymouI.jpg"),
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
@@ -509,7 +496,7 @@ export default {
           charge: false,
           sportsGround: false,
           playground: true,
-         // grillImage: require("./assets/photos/poddymouII.heic"),
+          grillImage: require("./assets/photos/poddymouII.jpg"),
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
@@ -539,7 +526,7 @@ export default {
           charge: false,
           sportsGround: true,
           playground: true,
-         // grillImage: require("./assets/photos/rokle.heic"),
+          grillImage: require("./assets/photos/rokle.jpg"),
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "100 m",
@@ -599,7 +586,7 @@ export default {
           charge: false,
           sportsGround: true,
           playground: true,
-         // grillImage: require("./assets/photos/rakovec.heic"),
+          grillImage: require("./assets/photos/rakovec.jpg"),
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
@@ -689,7 +676,7 @@ export default {
           charge: false,
           sportsGround: false,
           playground: false,
-         // grillImage: require("./assets/photos/sokolskekoupaliste.heic"),
+          grillImage: require("./assets/photos/sokolskekoupaliste.jpg"),
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "",
           parkingInfo: "600 m",
