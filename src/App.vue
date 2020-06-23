@@ -16,15 +16,14 @@
                 </v-row>
               </v-row>
             </div>
-             
+
             <div class="filterButtons" style="d-flex">
-              
               <v-btn-toggle v-model="toggle" multiple>
                 <v-tooltip bottom z-index="1000">
                   <template v-slot:activator="{ on, attrs }">
-                     <div >
-              <h2 class="align-self-center">filtry</h2>
-              </div>
+                    <div>
+                      <h2 class="align-self-center">filtry</h2>
+                    </div>
                     <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
                       <img
                         class="filterIcon"
@@ -138,7 +137,7 @@
             </div>
 
             <div>
-              <v-btn tile outlined @click="resetovat" color="#E0DCDC">
+              <v-btn tile outlined @click="resetovat" color="#E0DCDC" style="margin-right: 60px;">
                 <h2 class="reset">Resetovat vše</h2>
               </v-btn>
             </div>
@@ -305,9 +304,14 @@ export default {
           charge: true,
           sportsGround: true,
           playground: true,
-          grillImage: [ require("./assets/photos/00_Luzanky1.jpeg"),require("./assets/photos/00_Luzanky1.jpeg"),require("./assets/photos/01_spielberk1.jpg"), require("./assets/photos/04_koziHorka1.jpg")],
+          grillImage: [
+            require("./assets/photos/00_Luzanky1.jpeg"),
+            require("./assets/photos/00_Luzanky1.jpeg"),
+            require("./assets/photos/01_spielberk1.jpg"),
+            require("./assets/photos/04_koziHorka1.jpg")
+          ],
           parkingInfo: "parkoviště 100 m",
-          reservationInfo:`Rezervujte zde: <a target="_blank" href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
+          reservationInfo: `Rezervujte zde: <a target="_blank" href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
           palivoInfo: " gril je elektrický",
           sportsGroundInfo: " venkovní posilovna",
           playgroundInfo: " pískoviště, houpačky",
@@ -332,19 +336,20 @@ export default {
           sportsGround: false,
           playground: false,
           grillImage: require("./assets/photos/01_spielberk1.jpg"),
-          palivoInfo: 'gril je elektrický',
-          wcInfo:'',
+          palivoInfo: "gril je elektrický",
+          wcInfo: "",
           parkingInfo: "parkoviště 500 m - Domini park",
-          reservationInfo:`Rezervujte zde: <a target="_blank" href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
-          chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
+          reservationInfo: `Rezervujte zde: <a target="_blank" href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
+          chargeInfo:
+            "Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)",
           sportsGroundInfo: "",
-          playgroundInfo: '',
-          mhd:'šilingrovo náměstí (tram: 1,3,4,5,6,12)',
-          zajimavost:'je tu hrad',
-          comments: [
-            
-          ],
-          distance: latLng(49.2079947, 16.6066672).distanceTo(latLng(49.2079947, 16.6066672))
+          playgroundInfo: "",
+          mhd: "šilingrovo náměstí (tram: 1,3,4,5,6,12)",
+          zajimavost: "je tu hrad",
+          comments: [],
+          distance: latLng(49.2079947, 16.6066672).distanceTo(
+            latLng(49.2079947, 16.6066672)
+          )
         },
 
         {
@@ -441,13 +446,14 @@ export default {
           palivoInfo: " gril je elektrický",
           wcInfo: "",
           parkingInfo: "parkoviště 500 m - Domini park",
-          reservationInfo:`Rezervujte zde: <a target="_blank" href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
-          chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
+          reservationInfo: `Rezervujte zde: <a target="_blank" href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
+          chargeInfo:
+            "Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)",
           sportsGroundInfo: "",
           playgroundInfo: "",
-          
-          mhd:'šilingrovo náměstí (tram: 1,3,4,5,6,12)',
-          zajimavost:'bkjsdfjkhsadiuf',
+
+          mhd: "šilingrovo náměstí (tram: 1,3,4,5,6,12)",
+          zajimavost: "bkjsdfjkhsadiuf",
           comments: []
         },
         {
@@ -501,8 +507,8 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Roboto&display=swap");
 
-.reset{
-letter-spacing: 3px;
+.reset {
+  letter-spacing: 3px;
 }
 .filterButton {
   background: black;
