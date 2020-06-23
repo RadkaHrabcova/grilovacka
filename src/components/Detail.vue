@@ -23,54 +23,71 @@
         </v-row>
       </v-btn>
     </v-row>
-    <img v-bind:src="oneGrill.grillImage" width=100% />
+
+    <v-carousel cycle height="200" hide-delimiter-background show-arrows-on-hover>
+      <v-carousel-item v-for="(onePicture, i) in oneGrill.grillImage" :key="i">
+        <img v-bind:src="onePicture" width="100%" />
+      </v-carousel-item>
+    </v-carousel>
 
     <div class="detailInfo">
-
       <ul>
-         <li v-if="oneGrill.palivoInfo">
-          <img v-bind:src="require('../assets/icons/grill.svg')" />
-          {{oneGrill.palivoInfo}}
+        <li v-if="oneGrill.palivoInfo">
+          <div class="d-flex">
+            <img v-bind:src="require('../assets/icons/grill.svg')" />
+            {{oneGrill.palivoInfo}}
+          </div>
         </li>
 
         <li v-if="oneGrill.reservationInfo">
-        <div class="d-flex">
-          <img v-bind:src="require('../assets/icons/reservation.svg')" />
-          <p v-html="oneGrill.reservationInfo"></p>
-        </div>
-          </li>
+          <div class="d-flex">
+            <img v-bind:src="require('../assets/icons/reservation.svg')" />
+            <p v-html="oneGrill.reservationInfo"></p>
+          </div>
+        </li>
         <li v-if="oneGrill.chargeInfo">
-          <img v-bind:src="require('../assets/icons/dollar-sign.svg')" />
-          {{oneGrill.chargeInfo}}
-         
+          <div class="d-flex">
+            <img v-bind:src="require('../assets/icons/dollar-sign.svg')" />
+            {{oneGrill.chargeInfo}}
+          </div>
         </li>
         <li v-if="oneGrill.mhd">
-          <img v-bind:src="require('../assets/icons/mhd.png')" />
-          {{oneGrill.mhd}}
+          <div class="d-flex">
+            <img v-bind:src="require('../assets/icons/mhd.png')" />
+            {{oneGrill.mhd}}
+          </div>
         </li>
         <li v-if="oneGrill.parkingInfo">
-          <img v-bind:src="require('../assets/icons/parking.svg')"  />
-          {{oneGrill.parkingInfo}}
-        </li>       
+          <div class="d-flex">
+            <img v-bind:src="require('../assets/icons/parking.svg')" />
+            {{oneGrill.parkingInfo}}
+          </div>
+        </li>
         <li v-if="oneGrill.playgroundInfo">
-          <img v-bind:src="require('../assets/icons/playground.svg')" />
-          {{oneGrill.playgroundInfo}}
+          <div class="d-flex">
+            <img v-bind:src="require('../assets/icons/playground.svg')" />
+            {{oneGrill.playgroundInfo}}
+          </div>
         </li>
         <li v-if="oneGrill.sportsGroundInfo">
-          <img v-bind:src="require('../assets/icons/field.svg')" />
-          {{oneGrill.sportsGroundInfo}}
-        </li>             
+          <div class="d-flex">
+            <img v-bind:src="require('../assets/icons/field.svg')" />
+            {{oneGrill.sportsGroundInfo}}
+          </div>
+        </li>
         <li v-if="oneGrill.wcInfo">
-          <img v-bind:src="require('../assets/icons/wc-sign.svg')" />
-          {{oneGrill.wcInfo}}
-        </li>        
+          <div class="d-flex">
+            <img v-bind:src="require('../assets/icons/wc-sign.svg')" />
+            {{oneGrill.wcInfo}}
+          </div>
+        </li>
       </ul>
     </div>
-  <div v-if="oneGrill.zajimavost" class="zajimavost">
-  <h2>Turistická zajímavost</h2>
-  
-  <P>{{oneGrill.zajimavost}}</P>
-  </div>
+    <div v-if="oneGrill.zajimavost" class="zajimavost">
+      <h2>Turistická zajímavost</h2>
+
+      <P>{{oneGrill.zajimavost}}</P>
+    </div>
     <div class="komentar">
       <h2>Komentáře</h2>
       <div v-if="oneGrill.comments && oneGrill.comments.length > 0">
@@ -130,14 +147,13 @@ export default {
 </script>
       
 <style>
-.komentar, 
+.komentar,
 .zajimavost {
   padding: 0 40px;
-  
 }
 
 .zajimavost h2,
-.komentar h2{
+.komentar h2 {
   letter-spacing: 2px;
   padding-bottom: 30px;
   text-align: center;
