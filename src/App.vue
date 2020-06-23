@@ -16,6 +16,7 @@
                 </v-row>
               </v-row>
             </div>
+<<<<<<< HEAD
              
             <div  style="d-flex">
               
@@ -28,6 +29,18 @@
                <h2 >Vyber, co chceš mít na místě k dispozici:</h2> 
               
               </div >
+=======
+
+            <div class="filterButtons" style="d-flex">
+              <v-btn-toggle v-model="toggle" multiple>
+                <v-tooltip bottom z-index="1000">
+                  <template v-slot:activator="{ on, attrs }">
+                    <div>
+                      <!-- <h2>filtry</h2> -->
+
+                      <h2>Vyber, co chceš mít na místě k dispozici:</h2>
+                    </div>
+>>>>>>> 17079762a94f4cec5481cad80b6ae095d2dd05ee
                     <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
                       <img
                         class="filterIcon"
@@ -141,7 +154,7 @@
             </div>
 
             <div>
-              <v-btn tile outlined @click="resetovat" color="#E0DCDC">
+              <v-btn tile outlined @click="resetovat" color="#E0DCDC" style="margin-right: 60px;">
                 <h2 class="reset">Resetovat vše</h2>
               </v-btn>
             </div>
@@ -279,7 +292,7 @@ export default {
   },
   data() {
     return {
-      currentLatLng: latLng(49.1884422, 16.6147289),// zatím czechitas house
+      currentLatLng: latLng(49.1884422, 16.6147289), // zatím czechitas house
       toggle: [],
       searchedText: "",
       selectedGrill: null,
@@ -309,15 +322,17 @@ export default {
           sportsGround: true,
           playground: true,
           grillImage: require("./assets/photos/00_Luzanky1.jpeg"),
-          palivoInfo: 'gril je elektrický',
-          wcInfo:'',
+          palivoInfo: "gril je elektrický",
+          wcInfo: "",
           parkingInfo: "parkoviště 100 m",
-          reservationInfo:`Rezervujte zde: <a target="_blank" href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
-          chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',
+          reservationInfo: `Rezervujte zde: <a target="_blank" href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
+          chargeInfo:
+            "Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)",
           sportsGroundInfo: " venkovní posilovna",
           playgroundInfo: " pískoviště, houpačky",
-          mhd:'pionýrská (tram: 1,2,4,6,8,10,12;trolejbus: 25,26,38,39); zimní stadion(bus:67)',
-          zajimavost:'',
+          mhd:
+            "pionýrská (tram: 1,2,4,6,8,10,12;trolejbus: 25,26,38,39); zimní stadion(bus:67)",
+          zajimavost: "",
           comments: [
             { date: "20.6.", text: "bylo to hezke misto" },
             { date: "20.5.", text: "hrozne" }
@@ -342,17 +357,17 @@ export default {
           sportsGround: false,
           playground: false,
           grillImage: require("./assets/photos/01_spielberk1.jpg"),
-          palivoInfo: 'gril je elektrický',
-          wcInfo:'',
+          palivoInfo: "gril je elektrický",
+          wcInfo: "",
           parkingInfo: "parkoviště 500 m - Domini park",
-          reservationInfo:`Rezervujte zde: <a target="_blank" href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
-          chargeInfo:'Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)',          
+          reservationInfo: `Rezervujte zde: <a target="_blank" href="http://publicgrills.com/">publicgrills</a >. Maximální doba jedné rezervace jsou 2 hodiny.`,
+          chargeInfo:
+            "Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)",
           sportsGroundInfo: "",
-          playgroundInfo: '',
-          mhd:'šilingrovo náměstí (tram: 1,3,4,5,6,12)',
-          zajimavost:'hrad Špilberk',
-          comments: [  
-          ],
+          playgroundInfo: "",
+          mhd: "šilingrovo náměstí (tram: 1,3,4,5,6,12)",
+          zajimavost: "hrad Špilberk",
+          comments: [],
           distance:
             Math.round(
               latLng(49.193722, 16.601805).distanceTo(
@@ -377,12 +392,12 @@ export default {
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "",
           parkingInfo: "200 m",
-          reservationInfo:'',
-          chargeInfo:"",
+          reservationInfo: "",
+          chargeInfo: "",
           sportsGroundInfo: "",
           playgroundInfo: "prolézačky, klouzačky, houpačky",
           mhd: "náměstí Míru (tram:4;  bus: 68)",
-          zajimavost:'planetárium',
+          zajimavost: "planetárium",
           comments: [],
           distance:
             Math.round(
@@ -392,7 +407,7 @@ export default {
             ) / 10
         },
         {
-          id: 3,//neúplná data
+          id: 3, //neúplná data
           name: "Nový Lískovec",
           position: latLng(49.1754453, 16.5487825),
           type: "grill",
@@ -413,7 +428,7 @@ export default {
           sportsGroundInfo: "",
           playgroundInfo: "",
           mhd: "šilingrovo náměstí (tram: 1,3,4,5,6,12)",
-          zajimavost:'',
+          zajimavost: "",
           comments: [],
           distance:
             Math.round(
@@ -438,12 +453,12 @@ export default {
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "",
           parkingInfo: "90 m",
-          reservationInfo:'',
-          chargeInfo:"",
+          reservationInfo: "",
+          chargeInfo: "",
           sportsGroundInfo: "hřiště na košíkovou 200 m",
           playgroundInfo: "pískoviště",
           mhd: "náměstí Míru (tram:4;  bus: 68)",
-          zajimavost:'Brněnská přehrada',
+          zajimavost: "Brněnská přehrada",
           comments: [],
           distance:
             Math.round(
@@ -468,12 +483,12 @@ export default {
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
-          reservationInfo:'',
-          chargeInfo:"",
+          reservationInfo: "",
+          chargeInfo: "",
           sportsGroundInfo: "",
           playgroundInfo: "prolézačky, pískoviště",
           mhd: "náměstí Míru (tram:4;  bus: 68)",
-          zajimavost:'Brněnská přehrada',
+          zajimavost: "Brněnská přehrada",
           comments: [],
           distance:
             Math.round(
@@ -482,7 +497,7 @@ export default {
               ) / 100
             ) / 10
         },
-         {
+        {
           id: 6,
           name: "pod Dymou II.",
           position: latLng(49.243623, 16.498584),
@@ -498,12 +513,12 @@ export default {
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
-          reservationInfo:'',
-          chargeInfo:"",
+          reservationInfo: "",
+          chargeInfo: "",
           sportsGroundInfo: "",
           playgroundInfo: "prolézačky, pískoviště",
           mhd: "náměstí Míru (tram:4;  bus: 68)",
-          zajimavost:'Brněnská přehrada',
+          zajimavost: "Brněnská přehrada",
           comments: [],
           distance:
             Math.round(
@@ -528,12 +543,12 @@ export default {
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "100 m",
-          reservationInfo:'',
-          chargeInfo:"",
+          reservationInfo: "",
+          chargeInfo: "",
           sportsGroundInfo: "pinpongový stůl, půjčovna paddleboardů",
           playgroundInfo: "prolézačky, pískoviště - 100 m",
           mhd: "zastávka Rokle 300 m (bus: 303)",
-          zajimavost:'Brněnská přehrada; hrad Veveří 3,5 km',
+          zajimavost: "Brněnská přehrada; hrad Veveří 3,5 km",
           comments: [],
           distance:
             Math.round(
@@ -543,7 +558,7 @@ export default {
             ) / 10
         },
         {
-          id: 8,//neúplná data
+          id: 8, //neúplná data
           name: "Maloměřice",
           position: latLng(49.2270731, 16.6435522),
           type: "grill",
@@ -558,12 +573,12 @@ export default {
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "",
           parkingInfo: "200 m",
-          reservationInfo:'',
-          chargeInfo:"",
+          reservationInfo: "",
+          chargeInfo: "",
           sportsGroundInfo: "fitpark sluneční lázně",
           playgroundInfo: "",
           mhd: "zastávka Obřanský most 400 m (tram:4)",
-          zajimavost:'',
+          zajimavost: "",
           comments: [],
           distance:
             Math.round(
@@ -588,12 +603,12 @@ export default {
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
-          reservationInfo:'',
-          chargeInfo:"",
+          reservationInfo: "",
+          chargeInfo: "",
           sportsGroundInfo: "venkovní posilovna, pinpongové stoly",
           playgroundInfo: "trampolína, prolézačky, houpací kůň",
           mhd: "zastávka Rakovec 150 m (bus: 303)",
-          zajimavost:'Brněnská přehrada, občerstvení Rybářská bašta 130 m',
+          zajimavost: "Brněnská přehrada, občerstvení Rybářská bašta 130 m",
           comments: [],
           distance:
             Math.round(
@@ -603,9 +618,9 @@ export default {
             ) / 10
         },
         {
-          id: 10,//neúplná data
+          id: 10, //neúplná data
           name: "Líšeňská Rokle",
-          position: latLng(49.2083800, 16.6796433),
+          position: latLng(49.20838, 16.6796433),
           type: "grill",
           rating: [1, 2, 3],
           wc: true,
@@ -618,22 +633,22 @@ export default {
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
-          reservationInfo:'',
-          chargeInfo:"",
+          reservationInfo: "",
+          chargeInfo: "",
           sportsGroundInfo: "venkovní posilovna, pinpongové stoly",
           playgroundInfo: "prolézačky,",
           mhd: "",
-          zajimavost:'',
+          zajimavost: "",
           comments: [],
           distance:
             Math.round(
-              latLng(49.2083800, 16.6796433).distanceTo(
+              latLng(49.20838, 16.6796433).distanceTo(
                 latLng(49.1884422, 16.6147289)
               ) / 100
             ) / 10
         },
         {
-          id: 11,//neúplná data
+          id: 11, //neúplná data
           name: "Vyhlídka",
           position: latLng(49.223711, 16.633599),
           type: "grill",
@@ -648,12 +663,12 @@ export default {
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
-          reservationInfo:'',
-          chargeInfo:"",
+          reservationInfo: "",
+          chargeInfo: "",
           sportsGroundInfo: "venkovní posilovna, basketbalové hřiště",
           playgroundInfo: "houpačka, dětská lanovka, prolézačky,",
           mhd: "",
-          zajimavost:'',
+          zajimavost: "",
           comments: [],
           distance:
             Math.round(
@@ -678,12 +693,12 @@ export default {
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "",
           parkingInfo: "600 m",
-          reservationInfo:'',
-          chargeInfo:"",
+          reservationInfo: "",
+          chargeInfo: "",
           sportsGroundInfo: "",
           playgroundInfo: "",
           mhd: "",
-          zajimavost:'Brněnská přehrada, lodní doprava',
+          zajimavost: "Brněnská přehrada, lodní doprava",
           comments: [],
           distance:
             Math.round(
@@ -691,7 +706,7 @@ export default {
                 latLng(49.1884422, 16.6147289)
               ) / 100
             ) / 10
-        },
+        }
       ]
     };
   }
@@ -701,8 +716,8 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Roboto&display=swap");
 
-.reset{
-letter-spacing: 3px;
+.reset {
+  letter-spacing: 3px;
 }
 .filterButton {
   background: black;
