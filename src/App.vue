@@ -16,139 +16,174 @@
                 </v-row>
               </v-row>
             </div>
-             
+
             <div>
-              <v-row style="margin: 0px 10px;">
-              <h2 class="vyber">Vyber, co chceš mít na místě k dispozici:</h2> 
-              <v-btn-toggle style="margin: 0px 10px" class="filterButton" v-model="toggle" multiple>
-                <v-tooltip bottom z-index="1000">
-                  <template v-slot:activator="{ on, attrs }">
-                     <div >
-              <!-- <h2>filtry</h2> -->
-              
-               
-              
-              </div>
-              
-                    <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
-                      <img
-                        class="filterIcon"
-                        v-bind:src="require('./assets/icons/grill.svg')"
-                        width="40"
-                        height="40"
-                      />
-                    </v-btn>
-                  </template>
-                  <span>grill</span>
-                </v-tooltip>
+              <v-row style="margin: 0px 10px; height:30px !important">
+                <h2 class="vyber">Vyber, co chceš mít na místě k dispozici:</h2>
+                <v-btn-toggle
+                  style="margin: 0px 10px; height:30px !important"
+                  class="filterButton"
+                  v-model="toggle"
+                  multiple
+                >
+                  <v-tooltip bottom z-index="1000">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        style="width: 30px ; height:40px; margin: 0px 10px"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <img
+                          class="filterIcon"
+                          v-bind:src="require('./assets/icons/grill.svg')"
+                          width="30"
+                          height="30"
+                        />
+                      </v-btn>
+                    </template>
+                    <span>grill</span>
+                  </v-tooltip>
 
-                <v-tooltip bottom z-index="1000">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn style="margin: 0px 40px 0px 10px" v-bind="attrs" v-on="on">
-                      <img
-                        class="filterIcon"
-                        v-bind:src="require('./assets/icons/campfire.svg')"
-                        width="40"
-                        height="40"
-                      />
-                    </v-btn>
-                  </template>
-                  <span>ohniště</span>
-                </v-tooltip>
+                  <v-tooltip bottom z-index="1000">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        class="buttons-size"
+                        style="margin: 0px 40px 0px 10px; width: 30px ; height:40px;"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <img
+                          class="filterIcon"
+                          v-bind:src="require('./assets/icons/campfire.svg')"
+                          width="30"
+                          height="30"
+                        />
+                      </v-btn>
+                    </template>
+                    <span>ohniště</span>
+                  </v-tooltip>
 
-                <v-tooltip bottom z-index="1000">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
-                      <img
-                        class="filterIcon"
-                        v-bind:src="require('./assets/icons/parking.svg')"
-                        width="40"
-                        height="40"
-                      />
-                    </v-btn>
-                  </template>
-                  <span>parkoviště</span>
-                </v-tooltip>
+                  <v-tooltip bottom z-index="1000">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        class="buttons-size"
+                        style="margin: 0px 10px width: 30px ; height:40px;"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <img
+                          class="filterIcon"
+                          v-bind:src="require('./assets/icons/parking.svg')"
+                          width="30"
+                          height="30"
+                        />
+                      </v-btn>
+                    </template>
+                    <span>parkoviště</span>
+                  </v-tooltip>
 
-                <v-tooltip bottom z-index="1000">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
-                      <img
-                        class="filterIcon"
-                        v-bind:src="require('./assets/icons/reservation.svg')"
-                        width="40"
-                        height="40"
-                      />
-                    </v-btn>
-                  </template>
-                  <span>rezervace</span>
-                </v-tooltip>
+                  <v-tooltip bottom z-index="1000">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        class="buttons-size"
+                        style="margin: 0px 10px; width: 30px ; height:40px;"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <img
+                          class="filterIcon"
+                          v-bind:src="require('./assets/icons/reservation.svg')"
+                          width="30"
+                          height="30"
+                        />
+                      </v-btn>
+                    </template>
+                    <span>rezervace</span>
+                  </v-tooltip>
 
-                <v-tooltip bottom z-index="1000">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
-                      <img
-                        class="filterIcon"
-                        v-bind:src="require('./assets/icons/wc-sign.svg')"
-                        width="40"
-                        height="40"
-                      />
-                    </v-btn>
-                  </template>
-                  <span>wc</span>
-                </v-tooltip>
+                  <v-tooltip bottom z-index="1000">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        style="margin: 0px 10px; width: 30px ; height:40px; "
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <img
+                          class="filterIcon"
+                          v-bind:src="require('./assets/icons/wc-sign.svg')"
+                          width="30"
+                          height="30"
+                        />
+                      </v-btn>
+                    </template>
+                    <span>wc</span>
+                  </v-tooltip>
 
-                <v-tooltip bottom z-index="1000">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
-                      <img
-                        class="filterIcon"
-                        v-bind:src="require('./assets/icons/dollar-sign.svg')"
-                        width="40"
-                        height="40"
-                      />
-                    </v-btn>
-                  </template>
-                  <span>s poplatkem</span>
-                </v-tooltip>
+                  <v-tooltip bottom z-index="1000">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        style="margin: 0px 10px; width: 30px ; height:40px;"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <img
+                          class="filterIcon"
+                          v-bind:src="require('./assets/icons/dollar-sign.svg')"
+                          width="30"
+                          height="30"
+                        />
+                      </v-btn>
+                    </template>
+                    <span>s poplatkem</span>
+                  </v-tooltip>
 
-                <v-tooltip bottom z-index="1000">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
-                      <img
-                        class="filterIcon"
-                        v-bind:src="require('./assets/icons/playground.svg')"
-                        width="40"
-                        height="40"
-                      />
-                    </v-btn>
-                  </template>
-                  <span>dětské hřiště</span>
-                </v-tooltip>
+                  <v-tooltip bottom z-index="1000">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        style="margin: 0px 10px; width: 30px ; height:40px; "
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <img
+                          class="filterIcon"
+                          v-bind:src="require('./assets/icons/playground.svg')"
+                          width="30"
+                          height="30"
+                        />
+                      </v-btn>
+                    </template>
+                    <span>dětské hřiště</span>
+                  </v-tooltip>
 
-                <v-tooltip bottom z-index="1000">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
-                      <img
-                        class="filterIcon"
-                        v-bind:src="require('./assets/icons/field.svg')"
-                        width="40"
-                        height="40"
-                      />
-                    </v-btn>
-                  </template>
-                  <span>sportovní hřiště</span>
-                </v-tooltip>
-              </v-btn-toggle>
-            
-              <v-btn tile outlined @click="resetovat" color="#E0DCDC" style="margin-right: 10px;">
-                <h2 class="reset">Resetovat vše</h2>
-              </v-btn>
-              <v-btn v-on:click="getLocation()" style="margin-left: 50px; padding: 0px;"><img
-                        v-bind:src="require('./assets/icons/currentPosition.png')"
-                        width="40"
-                        height="40"/></v-btn>
-                        </v-row>
+                  <v-tooltip bottom z-index="1000">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        style="margin: 0px 10px; width: 30px ; height:40px;"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <img
+                          class="filterIcon"
+                          v-bind:src="require('./assets/icons/field.svg')"
+                          width="30"
+                          height="30"
+                        />
+                      </v-btn>
+                    </template>
+                    <span>sportovní hřiště</span>
+                  </v-tooltip>
+                </v-btn-toggle>
+
+                <v-btn
+                  tile
+                  outlined
+                  @click="resetovat"
+                  color="#E0DCDC"
+                  style="margin-right: 10px; margin-left: 10%"
+                >
+                  <h2 class="reset">Resetovat vše</h2>
+                </v-btn>
+              </v-row>
             </div>
           </v-row>
         </div>
@@ -201,6 +236,18 @@ import ListOfPlaces from "./components/ListOfPlaces.vue";
 import Detail from "./components/Detail.vue";
 
 export default {
+  beforeCreate() {
+    this.currentLatLng = latLng(49.1884422, 16.6147289);
+    this.$getLocation({ enableHighAccuracy: true })
+      .then(coordinates => {
+        console.log(coordinates);
+        this.currentLatLng = latLng(coordinates.lat, coordinates.lng);
+      })
+      .catch(error => {
+        console.log(error);
+        this.currentLatLng = latLng(49.1884422, 16.6147289);
+      });
+  },
   components: {
     ListOfPlaces,
     MyMap,
@@ -329,7 +376,7 @@ showPosition(position) {
           charge: true,
           sportsGround: true,
           playground: true,
-          grillImage: require("./assets/photos/00_Luzanky1.jpeg"),
+          grillImage: [require("./assets/photos/00_Luzanky1.jpeg")],
           palivoInfo: "gril je elektrický",
           wcInfo: "",
           parkingInfo: "parkoviště 100 m",
@@ -345,12 +392,11 @@ showPosition(position) {
             { date: "20.6.", text: "bylo to hezke misto" },
             { date: "20.5.", text: "hrozne" }
           ],
-          distance:`"
+          distance:
             Math.round(
-              latLng(49.2079947, 16.6066672).distanceTo(
-                ${this.currentLatLng}
-              ) / 100
-            ) / 10"`
+              latLng(49.2079947, 16.6066672).distanceTo(this.currentLatLng) /
+                100
+            ) / 10
         },
         {
           id: 1,
@@ -364,7 +410,7 @@ showPosition(position) {
           charge: true,
           sportsGround: false,
           playground: false,
-          grillImage: require("./assets/photos/01_spielberk1.jpg"),
+          grillImage: [require("./assets/photos/01_spielberk1.jpg")],
           palivoInfo: "gril je elektrický",
           wcInfo: "",
           parkingInfo: "parkoviště 500 m - Domini park",
@@ -378,9 +424,7 @@ showPosition(position) {
           comments: [],
           distance:
             Math.round(
-              latLng(49.193722, 16.601805).distanceTo(
-                latLng(49.1884422, 16.6147289)
-              ) / 100
+              latLng(49.193722, 16.601805).distanceTo(this.currentLatLng) / 100
             ) / 10
         },
 
@@ -396,7 +440,7 @@ showPosition(position) {
           charge: false,
           sportsGround: true,
           playground: true,
-          grillImage: require("./assets/photos/02_kraviHora1.jpg"),
+          grillImage: [require("./assets/photos/02_kraviHora1.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "",
           parkingInfo: "200 m",
@@ -426,7 +470,7 @@ showPosition(position) {
           charge: true,
           sportsGround: false,
           playground: false,
-          grillImage: require("./assets/photos/03_novyLiskovec3jpg.jpg"),
+          grillImage: [require("./assets/photos/03_novyLiskovec3jpg.jpg")],
           palivoInfo: " gril je elektrický",
           wcInfo: "",
           parkingInfo: "parkoviště 500 m - Domini park",
@@ -435,7 +479,7 @@ showPosition(position) {
             "Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)",
           sportsGroundInfo: "",
           playgroundInfo: "",
-          mhd: "šilingrovo náměstí (tram: 1,3,4,5,6,12)",
+          mhd: "",
           zajimavost: "",
           comments: [],
           distance:
@@ -457,7 +501,7 @@ showPosition(position) {
           charge: false,
           sportsGround: true,
           playground: true,
-          grillImage: require("./assets/photos/kozihorka.jpg"),
+          grillImage: [require("./assets/photos/kozihorka.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "",
           parkingInfo: "90 m",
@@ -465,7 +509,7 @@ showPosition(position) {
           chargeInfo: "",
           sportsGroundInfo: "hřiště na košíkovou 200 m",
           playgroundInfo: "pískoviště",
-          mhd: "náměstí Míru (tram:4;  bus: 68)",
+          mhd: "",
           zajimavost: "Brněnská přehrada",
           comments: [],
           distance:
@@ -487,7 +531,7 @@ showPosition(position) {
           charge: false,
           sportsGround: false,
           playground: true,
-          grillImage: require("./assets/photos/poddymouI.jpg"),
+          grillImage: [require("./assets/photos/poddymouI.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
@@ -517,7 +561,7 @@ showPosition(position) {
           charge: false,
           sportsGround: false,
           playground: true,
-          grillImage: require("./assets/photos/poddymouII.jpg"),
+          grillImage: [require("./assets/photos/poddymouII.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
@@ -547,7 +591,7 @@ showPosition(position) {
           charge: false,
           sportsGround: true,
           playground: true,
-          grillImage: require("./assets/photos/rokle.jpg"),
+          grillImage: [require("./assets/photos/rokle.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "100 m",
@@ -577,7 +621,7 @@ showPosition(position) {
           charge: false,
           sportsGround: true,
           playground: false,
-        //  grillImage: require(""),
+          //  grillImage: [require(""),],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "",
           parkingInfo: "200 m",
@@ -607,7 +651,7 @@ showPosition(position) {
           charge: false,
           sportsGround: true,
           playground: true,
-          grillImage: require("./assets/photos/rakovec.jpg"),
+          grillImage: [require("./assets/photos/rakovec.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
@@ -637,7 +681,7 @@ showPosition(position) {
           charge: false,
           sportsGround: true,
           playground: true,
-         // grillImage: require(""),
+          // grillImage: [require(""),],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
@@ -667,7 +711,7 @@ showPosition(position) {
           charge: false,
           sportsGround: true,
           playground: true,
-         // grillImage: require(""),
+          // grillImage: [require(""),],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
@@ -697,7 +741,7 @@ showPosition(position) {
           charge: false,
           sportsGround: false,
           playground: false,
-          grillImage: require("./assets/photos/sokolskekoupaliste.jpg"),
+          grillImage: [require("./assets/photos/sokolskekoupaliste.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "",
           parkingInfo: "600 m",
@@ -730,8 +774,7 @@ showPosition(position) {
 .filterButton {
   background: black;
 }
-
-.footer {
+.but .footer {
   background: black;
 }
 
@@ -756,15 +799,18 @@ showPosition(position) {
 
 .menu-wrapper {
   background: #393939;
+  height: 100px !important;
 }
 
-.filterButton{
+.filterButton {
   background: #393939 !important;
+  height: 0px !important;
 }
-.vyber{
-  color:#e0dcdc;
+.vyber {
+  color: #e0dcdc;
+  display: inline-block;
+  margin-left: -520px !important;
 }
-
 
 .my-wrapper {
   height: 100vh;
@@ -779,5 +825,10 @@ body {
 h1,
 h2 {
   font-family: "Amatic SC", cursive;
+}
+
+button-size {
+  height: 10px !important;
+  width: 10px !important;
 }
 </style>
