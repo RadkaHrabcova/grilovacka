@@ -24,7 +24,7 @@
       </v-btn>
     </v-row>
 
-    <v-carousel cycle height="200" hide-delimiter-background show-arrows-on-hover>
+    <v-carousel cycle height="350" hide-delimiter-background show-arrows-on-hover>
       <v-carousel-item v-for="(onePicture, i) in oneGrill.grillImage" :key="i">
         <img v-bind:src="onePicture" width="100%" />
       </v-carousel-item>

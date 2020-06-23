@@ -236,17 +236,8 @@ import ListOfPlaces from "./components/ListOfPlaces.vue";
 import Detail from "./components/Detail.vue";
 
 export default {
-  beforeCreate() {
-    this.currentLatLng = latLng(49.1884422, 16.6147289);
-    this.$getLocation({ enableHighAccuracy: true })
-      .then(coordinates => {
-        console.log(coordinates);
-        this.currentLatLng = latLng(coordinates.lat, coordinates.lng);
-      })
-      .catch(error => {
-        console.log(error);
-        this.currentLatLng = latLng(49.1884422, 16.6147289);
-      });
+  mounted() {
+    this.loadPosition();
   },
   components: {
     ListOfPlaces,
@@ -269,8 +260,21 @@ export default {
   },
 
   computed: {
+    currentLatLng() {
+      return this.currentLatLngVar ?? latLng(49.1884422, 16.6147289);
+    },
+    grillsTest() {
+      return this.allGrills.map(element => {
+        return {
+          ...element,
+          distance:
+            Math.round(element.position.distanceTo(this.currentLatLng) / 100) /
+            10
+        };
+      });
+    },
     searchedGrills() {
-      let filteredGrills = this.allGrills;
+      let filteredGrills = this.grillsTest;
 
       if (this.searchedText.length > 0) {
         filteredGrills = filteredGrills.filter(grills =>
@@ -322,6 +326,7 @@ export default {
   },
 
   methods: {
+<<<<<<< HEAD
 
     getLocation() {
    if (navigator.geolocation) {
@@ -338,6 +343,18 @@ showPosition(position) {
   "," + position.coords.longitude + ")";
   console.log(this.currentLatLng)
 },
+=======
+    loadPosition() {
+      this.$getLocation({ enableHighAccuracy: true })
+        .then(
+          coordinates =>
+            (this.currentLatLngVar = latLng(coordinates.lat, coordinates.lng))
+        )
+        .catch(
+          error => (this.currentLatLngVar = latLng(49.1884422, 16.6147289))
+        );
+    },
+>>>>>>> 518ade4ced97868a0293069f82d2dc6f196ab553
     resetovat() {
       this.toggle = [];
     },
@@ -347,7 +364,7 @@ showPosition(position) {
   },
   data() {
     return {
-      currentLatLng: latLng(49.1884422, 16.6147289), // zatím czechitas house
+      currentLatLngVar: null,
       toggle: [],
       searchedText: "",
       selectedGrill: null,
@@ -391,12 +408,7 @@ showPosition(position) {
           comments: [
             { date: "20.6.", text: "bylo to hezke misto" },
             { date: "20.5.", text: "hrozne" }
-          ],
-          distance:
-            Math.round(
-              latLng(49.2079947, 16.6066672).distanceTo(this.currentLatLng) /
-                100
-            ) / 10
+          ]
         },
         {
           id: 1,
@@ -421,11 +433,7 @@ showPosition(position) {
           playgroundInfo: "",
           mhd: "šilingrovo náměstí (tram: 1,3,4,5,6,12)",
           zajimavost: "hrad Špilberk",
-          comments: [],
-          distance:
-            Math.round(
-              latLng(49.193722, 16.601805).distanceTo(this.currentLatLng) / 100
-            ) / 10
+          comments: []
         },
 
         {
