@@ -19,15 +19,15 @@
              
             <div  style="d-flex">
               
-              <v-btn-toggle v-model="toggle" multiple>
+              <v-btn-toggle class="filterButton" v-model="toggle" multiple>
                 <v-tooltip bottom z-index="1000">
                   <template v-slot:activator="{ on, attrs }">
                      <div >
               <!-- <h2>filtry</h2> -->
               
-               <h2 >Vyber, co chceš mít na místě k dispozici:</h2> 
+               <h2 class="vyber">Vyber, co chceš mít na místě k dispozici:</h2> 
               
-              </div >
+              </div>
                     <v-btn style="margin: 0px 10px" v-bind="attrs" v-on="on">
                       <img
                         class="filterIcon"
@@ -735,6 +735,13 @@ export default {
 
 .menu-wrapper {
   background: #393939;
+}
+
+.filterButton{
+  background: #393939 !important;
+}
+.vyber{
+  color:#e0dcdc;
 }
 
 
