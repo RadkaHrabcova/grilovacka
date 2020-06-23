@@ -144,7 +144,7 @@
               <v-btn tile outlined @click="resetovat" color="#E0DCDC" style="margin-right: 10px;">
                 <h2 class="reset">Resetovat vše</h2>
               </v-btn>
-              <v-btn style="margin-left: 50px; padding: 0px;"><img
+              <v-btn v-on:click="getLocation()" style="margin-left: 50px; padding: 0px;"><img
                         v-bind:src="require('./assets/icons/currentPosition.png')"
                         width="40"
                         height="40"/></v-btn>
@@ -275,6 +275,22 @@ export default {
   },
 
   methods: {
+
+    getLocation() {
+   if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(this.showPosition);
+
+
+  } else {
+    this.currentLatLng = "Geolocation is not supported by this browser.";
+  }
+},
+
+showPosition(position) {
+   this.currentLatLng = "latLng(" + position.coords.latitude +
+  "," + position.coords.longitude + ")";
+  console.log(this.currentLatLng)
+},
     resetovat() {
       this.toggle = [];
     },
