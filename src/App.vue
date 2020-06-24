@@ -6,11 +6,11 @@
           <v-row class="justify-space-between align-center fill-height px-4" no-gutters>
             <div>
               <v-row no-gutters class="align-center">
-                <v-app-bar-nav-icon s @click="drawer = !drawer">
+                <!-- <v-app-bar-nav-icon s @click="drawer = !drawer">
                   <img :src="require('./assets/icons/greyPin.png')" height="40" />
-                </v-app-bar-nav-icon>
+                </v-app-bar-nav-icon> -->
 
-                <v-row class="logo">
+                <v-row class="logo" style=" padding-top: 10px ">
                   <img v-bind:src="require('./assets/redG.png')" height="80" />
                   <h1 class="logoText">rilovačka</h1>
                 </v-row>
@@ -801,15 +801,13 @@ export default {
 .reset {
   letter-spacing: 3px;
 }
-.filterButton {
-  background: black;
-}
+
 .but .footer {
   background: black;
 }
 
 .v-btn-toggle > .v-btn.v-btn--active {
-  color: black !important;
+  color: #ca0101 !important;
 }
 
 .logo {
@@ -834,6 +832,7 @@ export default {
 
 .filterButton {
   background: #393939 !important;
+  
   height: 0px !important;
 }
 .vyber {
