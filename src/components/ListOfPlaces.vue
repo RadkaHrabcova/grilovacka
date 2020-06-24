@@ -24,8 +24,8 @@
         <v-row no-gutters class="justify-center align-center">
           <img
             class="image-wrapper"
-            v-if="item.grillImage"
-            :src="item.grillImage"
+            v-if="item.sgrillImage"
+            :src="item.sgrillImage"
             alt="nahled obrazku"
           />
           <img

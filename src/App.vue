@@ -326,24 +326,6 @@ export default {
   },
 
   methods: {
-<<<<<<< HEAD
-
-    getLocation() {
-   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(this.showPosition);
-
-
-  } else {
-    this.currentLatLng = "Geolocation is not supported by this browser.";
-  }
-},
-
-showPosition(position) {
-   this.currentLatLng = "latLng(" + position.coords.latitude +
-  "," + position.coords.longitude + ")";
-  console.log(this.currentLatLng)
-},
-=======
     loadPosition() {
       this.$getLocation({ enableHighAccuracy: true })
         .then(
@@ -354,7 +336,6 @@ showPosition(position) {
           error => (this.currentLatLngVar = latLng(49.1884422, 16.6147289))
         );
     },
->>>>>>> 518ade4ced97868a0293069f82d2dc6f196ab553
     resetovat() {
       this.toggle = [];
     },
@@ -383,7 +364,7 @@ showPosition(position) {
       allGrills: [
         {
           id: 0,
-          name: "Veřejný gril Lužánky",
+          name: "gril Lužánky",
           position: latLng(49.2079947, 16.6066672),
           type: "grill",
           rating: [3, 5, 3],
@@ -393,7 +374,8 @@ showPosition(position) {
           charge: true,
           sportsGround: true,
           playground: true,
-          grillImage: [require("./assets/photos/00_Luzanky1.jpeg")],
+          grillImage: [require("./assets/photos/00_Luzanky1.jpeg"),require("./assets/photos/luzanky1.jpg"),require("./assets/photos/luzanky2.jpg")],
+          sgrillImage: [require("./assets/photos/00_Luzanky1.jpeg")],
           palivoInfo: "gril je elektrický",
           wcInfo: "",
           parkingInfo: "parkoviště 100 m",
@@ -412,7 +394,7 @@ showPosition(position) {
         },
         {
           id: 1,
-          name: "Veřejný gril Špilberk",
+          name: "gril Špilberk",
           position: latLng(49.193722, 16.601805),
           type: "grill",
           rating: [3, 4, 3],
@@ -423,6 +405,7 @@ showPosition(position) {
           sportsGround: false,
           playground: false,
           grillImage: [require("./assets/photos/01_spielberk1.jpg")],
+          sgrillImage: [require("./assets/photos/01_spielberk1.jpg")],
           palivoInfo: "gril je elektrický",
           wcInfo: "",
           parkingInfo: "parkoviště 500 m - Domini park",
@@ -438,7 +421,7 @@ showPosition(position) {
 
         {
           id: 2,
-          name: "Veřejný gril Kraví hora",
+          name: "gril Kraví hora",
           position: latLng(49.2035717, 16.5842714),
           type: "grill",
           rating: [3, 4, 3],
@@ -449,6 +432,7 @@ showPosition(position) {
           sportsGround: true,
           playground: true,
           grillImage: [require("./assets/photos/02_kraviHora1.jpg")],
+          sgrillImage: [require("./assets/photos/02_kraviHora1.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "",
           parkingInfo: "200 m",
@@ -468,26 +452,26 @@ showPosition(position) {
         },
         {
           id: 3, //neúplná data
-          name: "Nový Lískovec",
+          name: "gril Nový Lískovec",
           position: latLng(49.1754453, 16.5487825),
           type: "grill",
           rating: [3, 4, 3],
           wc: true,
           parking: true,
-          reservation: true,
-          charge: true,
+          reservation: false,
+          charge: false,
           sportsGround: false,
-          playground: false,
-          grillImage: [require("./assets/photos/03_novyLiskovec3jpg.jpg")],
-          palivoInfo: " gril je elektrický",
+          playground: true,
+          grillImage: [require("./assets/photos/03_novyLiskovec3jpg.jpg"),require("./assets/photos/03_novyLiskovec2.jpg"),require("./assets/photos/03_novyLiskovec1.jpg")],
+          sgrillImage: [require("./assets/photos/03_novyLiskovec3jpg.jpg")],
+          palivoInfo: " uhlí, dřevo, brikety",
           wcInfo: "",
-          parkingInfo: "parkoviště 500 m - Domini park",
-          reservationInfo: ` Maximální doba jedné rezervace jsou 2 hodiny; rezervujte zde: http://publicgrills.com/`,
-          chargeInfo:
-            "Poplatek za jednu rezervaci je 20Kč (prostřednictvím SMS)",
+          parkingInfo: "300 m",
+          reservationInfo: '',
+          chargeInfo:"",
           sportsGroundInfo: "",
-          playgroundInfo: "",
-          mhd: "",
+          playgroundInfo: "lanový park",
+          mhd: "zastávka Oblá (bus: 25,50,26,37)",
           zajimavost: "",
           comments: [],
           distance:
@@ -499,7 +483,7 @@ showPosition(position) {
         },
         {
           id: 4,
-          name: "Kozí horka",
+          name: " gril Kozí horka",
           position: latLng(49.2386636, 16.5052903),
           type: "grill",
           rating: [5, 5, 1],
@@ -509,7 +493,8 @@ showPosition(position) {
           charge: false,
           sportsGround: true,
           playground: true,
-          grillImage: [require("./assets/photos/kozihorka.jpg")],
+          grillImage: [require("./assets/photos/kozihorka.jpg"),require("./assets/photos/kozihorka1.jpg"),require("./assets/photos/kozihorka3.jpg"),require("./assets/photos/kozihorka4.jpg")],
+          sgrillImage: [require("./assets/photos/kozihorka.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "",
           parkingInfo: "90 m",
@@ -517,7 +502,7 @@ showPosition(position) {
           chargeInfo: "",
           sportsGroundInfo: "hřiště na košíkovou 200 m",
           playgroundInfo: "pískoviště",
-          mhd: "",
+          mhd: "zastávka Kozí horka ( bus: 303)",
           zajimavost: "Brněnská přehrada",
           comments: [],
           distance:
@@ -529,7 +514,7 @@ showPosition(position) {
         },
         {
           id: 5,
-          name: "pod Dymou I.",
+          name: "gril pod Dymou I.",
           position: latLng(49.243622, 16.498543),
           type: "grill",
           rating: [5, 5, 5],
@@ -539,7 +524,8 @@ showPosition(position) {
           charge: false,
           sportsGround: false,
           playground: true,
-          grillImage: [require("./assets/photos/poddymouI.jpg")],
+          grillImage: [require("./assets/photos/poddymouI.jpg"),require("./assets/photos/poddymou.jpg"),require("./assets/photos/poddymou2.jpg"),require("./assets/photos/poddymou5.jpg"),require("./assets/photos/poddymou6.jpg")],
+          sgrillImage: [require("./assets/photos/poddymouI.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
@@ -547,7 +533,7 @@ showPosition(position) {
           chargeInfo: "",
           sportsGroundInfo: "",
           playgroundInfo: "prolézačky, pískoviště",
-          mhd: "náměstí Míru (tram:4;  bus: 68)",
+          mhd: "zastávka Rokle ( bus: 303)",
           zajimavost: "Brněnská přehrada",
           comments: [],
           distance:
@@ -559,7 +545,7 @@ showPosition(position) {
         },
         {
           id: 6,
-          name: "pod Dymou II.",
+          name: "gril pod Dymou II.",
           position: latLng(49.243623, 16.498584),
           type: "grill",
           rating: [5, 5, 5],
@@ -569,7 +555,7 @@ showPosition(position) {
           charge: false,
           sportsGround: false,
           playground: true,
-          grillImage: [require("./assets/photos/poddymouII.jpg")],
+          grillImage: [require("./assets/photos/poddymouII.jpg"),require("./assets/photos/poddymou.jpg"),require("./assets/photos/poddymou2.jpg"),require("./assets/photos/poddymou5.jpg"),require("./assets/photos/poddymou6.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
@@ -577,7 +563,7 @@ showPosition(position) {
           chargeInfo: "",
           sportsGroundInfo: "",
           playgroundInfo: "prolézačky, pískoviště",
-          mhd: "náměstí Míru (tram:4;  bus: 68)",
+          mhd: "zastávka Rokle ( bus: 303)",
           zajimavost: "Brněnská přehrada",
           comments: [],
           distance:
@@ -589,7 +575,7 @@ showPosition(position) {
         },
         {
           id: 7,
-          name: "Rokle",
+          name: "gril Rokle",
           position: latLng(49.2480253, 16.4937339),
           type: "grill",
           rating: [1, 4, 3],
@@ -599,7 +585,8 @@ showPosition(position) {
           charge: false,
           sportsGround: true,
           playground: true,
-          grillImage: [require("./assets/photos/rokle.jpg")],
+          grillImage: [require("./assets/photos/rokle.jpg"),require("./assets/photos/rokle1.jpg"),require("./assets/photos/rokle2.jpg"),require("./assets/photos/rokle4.jpg"),require("./assets/photos/rokle5.jpg")],
+          sgrillImage: [require("./assets/photos/rokle.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "100 m",
@@ -617,39 +604,39 @@ showPosition(position) {
               ) / 100
             ) / 10
         },
-        {
-          id: 8, //neúplná data
-          name: "Maloměřice",
-          position: latLng(49.2270731, 16.6435522),
-          type: "grill",
-          rating: [1, 1, 3],
-          wc: false,
-          parking: true,
-          reservation: false,
-          charge: false,
-          sportsGround: true,
-          playground: false,
-          //  grillImage: [require(""),],
-          palivoInfo: "uhlí, dřevo, brikety",
-          wcInfo: "",
-          parkingInfo: "200 m",
-          reservationInfo: "",
-          chargeInfo: "",
-          sportsGroundInfo: "fitpark sluneční lázně",
-          playgroundInfo: "",
-          mhd: "zastávka Obřanský most 400 m (tram:4)",
-          zajimavost: "",
-          comments: [],
-          distance:
-            Math.round(
-              latLng(49.2270731, 16.6435522).distanceTo(
-                latLng(49.1884422, 16.6147289)
-              ) / 100
-            ) / 10
-        },
+        // {
+        //   id: 8, //neúplná data
+        //   name: "Maloměřice",
+        //   position: latLng(49.2270731, 16.6435522),
+        //   type: "grill",
+        //   rating: [1, 1, 3],
+        //   wc: false,
+        //   parking: true,
+        //   reservation: false,
+        //   charge: false,
+        //   sportsGround: true,
+        //   playground: false,
+        //   //  grillImage: [require(""),],
+        //   palivoInfo: "uhlí, dřevo, brikety",
+        //   wcInfo: "",
+        //   parkingInfo: "200 m",
+        //   reservationInfo: "",
+        //   chargeInfo: "",
+        //   sportsGroundInfo: "fitpark sluneční lázně",
+        //   playgroundInfo: "",
+        //   mhd: "zastávka Obřanský most 400 m (tram:4)",
+        //   zajimavost: "",
+        //   comments: [],
+        //   distance:
+        //     Math.round(
+        //       latLng(49.2270731, 16.6435522).distanceTo(
+        //         latLng(49.1884422, 16.6147289)
+        //       ) / 100
+        //     ) / 10
+        // },
         {
           id: 9,
-          name: "Rakovec",
+          name: " gril Rakovec",
           position: latLng(49.2275075, 16.5104231),
           type: "grill",
           rating: [1, 2, 3],
@@ -659,7 +646,8 @@ showPosition(position) {
           charge: false,
           sportsGround: true,
           playground: true,
-          grillImage: [require("./assets/photos/rakovec.jpg")],
+          grillImage: [require("./assets/photos/rakovec.jpg"),require("./assets/photos/rakovec1.jpg"),require("./assets/photos/rakovec2.jpg"),require("./assets/photos/rakovec4.jpg"),require("./assets/photos/rakovec5.jpg"),require("./assets/photos/rakovec7.jpg")],
+          sgrillImage: [require("./assets/photos/rakovec.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
@@ -679,25 +667,26 @@ showPosition(position) {
         },
         {
           id: 10, //neúplná data
-          name: "Líšeňská Rokle",
+          name: "gril Líšeňská Rokle",
           position: latLng(49.20838, 16.6796433),
           type: "grill",
           rating: [1, 2, 3],
-          wc: true,
+          wc: false,
           parking: true,
           reservation: false,
           charge: false,
-          sportsGround: true,
-          playground: true,
-          // grillImage: [require(""),],
-          palivoInfo: "uhlí, dřevo, brikety",
-          wcInfo: "toi toi",
+          sportsGround: false,
+          playground: false,
+          grillImage: [require("./assets/photos/lisenskaRokle.jpg"), require("./assets/photos/lisenskaRokle1.jpg"),require("./assets/photos/lisenskarokle2.jpg")],
+          sgrillImage: [require("./assets/photos/lisenskaRokle.jpg")],
+          palivoInfo: "elektrický gril",
+          wcInfo: "",
           parkingInfo: "130 m",
           reservationInfo: "",
           chargeInfo: "",
-          sportsGroundInfo: "venkovní posilovna, pinpongové stoly",
-          playgroundInfo: "prolézačky,",
-          mhd: "",
+          sportsGroundInfo: "",
+          playgroundInfo: "",
+          mhd: "zastávky Masarova a Kotlanova ( tram: 8)",
           zajimavost: "",
           comments: [],
           distance:
@@ -709,7 +698,7 @@ showPosition(position) {
         },
         {
           id: 11, //neúplná data
-          name: "Vyhlídka",
+          name: "gril Vyhlídka",
           position: latLng(49.223711, 16.633599),
           type: "grill",
           rating: [1, 2, 3],
@@ -719,15 +708,16 @@ showPosition(position) {
           charge: false,
           sportsGround: true,
           playground: true,
-          // grillImage: [require(""),],
-          palivoInfo: "uhlí, dřevo, brikety",
-          wcInfo: "toi toi",
-          parkingInfo: "130 m",
+          grillImage: [require("./assets/photos/vyhlidka.jpg"),require("./assets/photos/vyhlidka1.jpg"),require("./assets/photos/vyhlidka2.jpg"),require("./assets/photos/vyhlidka4.jpg"),require("./assets/photos/vyhlidka5.jpg")],
+          sgrillImage: [require("./assets/photos/vyhlidka.jpg")],
+          palivoInfo: "uhlí, dřevo, brikety, je potřeba si vypůjčit rošt viz.foto",
+          wcInfo: "",
+          parkingInfo: "50 m",
           reservationInfo: "",
           chargeInfo: "",
           sportsGroundInfo: "venkovní posilovna, basketbalové hřiště",
           playgroundInfo: "houpačka, dětská lanovka, prolézačky,",
-          mhd: "",
+          mhd: "zastávka Heleny Malířové (bus: 46, 81)",
           zajimavost: "",
           comments: [],
           distance:
@@ -739,7 +729,7 @@ showPosition(position) {
         },
         {
           id: 12,
-          name: "Sokolské Koupaliště",
+          name: "gril Sokolské Koupaliště",
           position: latLng(49.244144, 16.508333),
           type: "grill",
           rating: [1, 2, 3],
@@ -749,7 +739,8 @@ showPosition(position) {
           charge: false,
           sportsGround: false,
           playground: false,
-          grillImage: [require("./assets/photos/sokolskekoupaliste.jpg")],
+          grillImage: [require("./assets/photos/sokolskekoupaliste.jpg"),require("./assets/photos/sokolskekoupaliste1.jpg"),require("./assets/photos/sokolskekoupaliste2.jpg"),require("./assets/photos/sokolskekoupaliste3.jpg")],
+          sgrillImage: [require("./assets/photos/sokolskekoupaliste.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "",
           parkingInfo: "600 m",
@@ -766,7 +757,38 @@ showPosition(position) {
                 latLng(49.1884422, 16.6147289)
               ) / 100
             ) / 10
-        }
+        },
+        {
+          id: 13,
+          name: "ohniště Škrobárenská",
+          position: latLng(49.184089, 16.623625),
+          type: "campfire",
+          rating: [1, 2, 3],
+          wc: false,
+          parking: false,
+          reservation: false,
+          charge: false,
+          sportsGround: true,
+          playground: true,
+          grillImage: [require("./assets/photos/skrobarenska.jpg"),require("./assets/photos/skrobarenska1.jpg"),],
+          sgrillImage: [require("./assets/photos/skrobarenska.jpg")],
+          palivoInfo: "dřevo",
+          wcInfo: "",
+          parkingInfo: "100 m",
+          reservationInfo: "",
+          chargeInfo: "",
+          sportsGroundInfo: "hřiště na košíkovou a fotbal",
+          playgroundInfo: "houpačky, kouzačky",
+          mhd: "",
+          zajimavost: "",
+          comments: [],
+          distance:
+            Math.round(
+              latLng(49.2275075, 16.5104231).distanceTo(
+                latLng(49.1884422, 16.6147289)
+              ) / 100
+            ) / 10
+        },
       ]
     };
   }
