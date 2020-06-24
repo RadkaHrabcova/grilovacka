@@ -388,8 +388,8 @@ export default {
             "pionýrská (tram: 1,2,4,6,8,10,12;trolejbus: 25,26,38,39); zimní stadion(bus:67)",
           zajimavost: "",
           comments: [
-            { date: "20.6.", text: "bylo to hezke misto" },
-            { date: "20.5.", text: "hrozne" }
+            {name: "Petr M.", date: "20.6.2018", text: "Bylo to hezke misto." },
+            {name: "Ondřej", date: "20.5.2020", text: "Hodně lidí, ale čisté, doporučuji." }
           ]
         },
         {
@@ -556,6 +556,7 @@ export default {
           sportsGround: false,
           playground: true,
           grillImage: [require("./assets/photos/poddymouII.jpg"),require("./assets/photos/poddymou.jpg"),require("./assets/photos/poddymou2.jpg"),require("./assets/photos/poddymou5.jpg"),require("./assets/photos/poddymou6.jpg")],
+           sgrillImage: [require("./assets/photos/poddymouII.jpg")],
           palivoInfo: "uhlí, dřevo, brikety",
           wcInfo: "toi toi",
           parkingInfo: "130 m",
@@ -808,6 +809,10 @@ export default {
 
 .v-btn-toggle > .v-btn.v-btn--active {
   color: #ca0101 !important;
+}
+
+.v-btn:not(.v-btn--text):not(.v-btn--outlined).v-btn--active:before {
+    opacity: 0.50;
 }
 
 .logo {

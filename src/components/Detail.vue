@@ -94,13 +94,21 @@
         <div
           v-for="comment in oneGrill.comments"
           :key="comment.name"
-        >{{comment.name}} - {{comment.text}}</div>
+         >
+         <div>
+         <div class="pridano">
+         <p><strong>{{comment.name}}</strong> ({{comment.date}})</p> 
+         </div>
+         <p class="ptext"> - {{comment.text}}</p>
+         </div>
+         </div>
       </div>
 
-      <div v-else>nejsou zadne komentare</div>
+      <div v-else>Nejsou žádné komentáře</div>
 
       <v-form>
-        <v-text-field v-model="name" label="Name" required></v-text-field>
+        <v-text-field v-model="name" label="jméno" required></v-text-field>
+        <v-text-field v-model="date" label="datum" required></v-text-field>
 
         <v-text-field v-model="text" label="text" required></v-text-field>
 
@@ -117,7 +125,8 @@ export default {
   data() {
     return {
       name: "",
-      text: ""
+      text: "",
+      date:"",
     };
   },
 
@@ -128,9 +137,10 @@ export default {
   },
   methods: {
     add() {
-      this.oneGrill.comments.push({ name: this.name, text: this.text });
+      this.oneGrill.comments.push({ name: this.name, text: this.text, date: this.date });
       this.name = "";
       this.text = "";
+      this.date = "";
     },
     createLink(position) {
       return `https://maps.google.com/?ll=${position.lat},${position.lng}`;
@@ -147,9 +157,18 @@ export default {
 </script>
       
 <style>
+.pridano{
+margin: 0px;
+padding-bottom: 0px;
+}
+.ptext{
+  padding-top: 0px;
+  margin-top: 0px;
+}
 .komentar,
 .zajimavost {
   padding: 0 40px;
+  margin-top: 50px
 }
 
 .zajimavost h2,
