@@ -374,8 +374,8 @@ export default {
           charge: true,
           sportsGround: true,
           playground: true,
-          grillImage: [require("./assets/photos/00_Luzanky1.jpeg"),require("./assets/photos/luzanky1.jpg"),require("./assets/photos/luzanky2.jpg")],
-          sgrillImage: [require("./assets/photos/00_Luzanky1.jpeg")],
+          grillImage: [require("./assets/photos/00_Luzanky1.jpg"),require("./assets/photos/luzanky1.jpg"),require("./assets/photos/luzanky2.jpg")],
+          sgrillImage: [require("./assets/photos/00_Luzanky1.jpg")],
           palivoInfo: "gril je elektrický",
           wcInfo: "",
           parkingInfo: "parkoviště 100 m",
@@ -837,7 +837,7 @@ export default {
 
 .filterButton {
   background: #393939 !important;
-  
+
   height: 0px !important;
 }
 .vyber {
